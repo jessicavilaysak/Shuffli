@@ -81,7 +81,7 @@ class ViewController: UIViewController {
                 
                 FIRAuth.auth()?.currentUser?.sendEmailVerification( completion: { (error) in
                     // ...
-                    print("sent email")
+                    print("sent email - TESTTTTTTTTTTTT")
                 })
                 
                 if let u = user{
