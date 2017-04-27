@@ -1,51 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="shuffli">
 
 <head>
 	<meta charset="utf-8">
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
 	<title>Shuffli</title>
 	<!-- Latest compiled and minified CSS -->
+	<link href="./css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="stylesheets/styles.css">
-	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
 </head>
 
-<body>
-
-	<div id="login-bg">
-		<div class="container">
-			<div class="card card-container">
-				<img id="profile-img" class="profile-img-card" src="images/logo.png" />
-				<p id="profile-name" class="profile-name-card">Shuffli Dashboard</p>
-				<form class="form-signin">
-					<span id="reauth-email" class="reauth-email"></span>
-					<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-					<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-					<div id="remember" class="checkbox">
-						<label>
-							<input type="checkbox" value="remember-me"> Remember me
-						</label>
-					</div>
-					<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
-				</form>
-				<!-- /form -->
-				<a href="#" class="forgot-password">
-                Forgot the password?
-            </a>
-			</div>
-			<!-- /card-container -->
+<body data-ng-controller="mainController">
+	<div class="container">
+		<div data-ng-view>
 		</div>
-		<!-- /container -->
 	</div>
 
 
-	<script src="app.js"></script>
-
-
-	<!-- Latest compiled and minified JavaScript -->
+	<!-- Firebase JavaScript -->
+	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+	<!-- jQuery JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+	<!-- Bootstrap JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- Angular JavaScript  -->
+	<script src="./js/angular.min.js"></script>
+	<script src="./js/angular-route.min.js"></script>
+	<script src="./js/angular-local-storage.min.js"></script>
+	<!-- Main Application JavaScript -->
+	<script src="./angular/app.js"></script>
+	<!-- Angular Controllers -->
+	<script src="./angular/controllers.js"></script>
+	<!-- Angular Configs -->
+	<script src="./angular/configs.js"></script>
+	<!-- Angular Factories -->
+	<script src="./angular/factories.js"></script>
+	<!-- Angular Services -->
+	<script src="./angular/services.js"></script>
+	<!-- Angular Bootbox Plugin -->
+	<script src="./js/bootbox.min.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div id="login-bg">
+			<div class="card card-container">
+				<img id="profile-img" class="profile-img-card" src="images/logo.png" />
+				<p id="profile-name" class="profile-name-card">Shuffli Dashboard</p>
+				<form class="form-signin" data-ng-submit="submitLogin()">
+					<span id="reauth-email" class="reauth-email"></span>
+					<input type="text" id="inputID" class="form-control" placeholder="Curator ID" ng-disabled="loggingIn" autofocus required>
+					<input type="email" id="inputUsername" class="form-control" placeholder="Username" ng-disabled="loggingIn" required>
+					<input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-disabled="loggingIn" required>
+					<div id="remember" class="checkbox">
+						<label>
+							<input type="checkbox" value="remember-me" ng-disabled="loggingIn"> Remember me
+						</label>
+					</div>
+					<button class="btn btn-lg" ng-class="{'btn-success': !loggingIn, 'btn-warning': loggingIn}" type="submit">
+					<span data-ng-if="!loggingIn"><i class="fa fa-sign-in"></i> Sign In</span><span data-ng-if="loggingIn"><i class="fa fa-refresh fa-spin fa-fw"></i>
+<span class="sr-only">Loading...</span> Logging in</span>
+					</button>
+				</form>
+				<!-- /form -->
+			</div>
+			<!-- /card-container -->
+		</div>
+	</div>
+</div>
