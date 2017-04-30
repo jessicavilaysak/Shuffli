@@ -2,9 +2,12 @@ body,
 html {
 	height: 100%;
 	background-repeat: no-repeat;
+	background-color: rgba(211, 211, 211, 0.7);
+	/*
 	background-image: -webkit-linear-gradient(white, darkorange);
 	background-image: -o-linear-gradient(white, darkorange);
 	background-image: linear-gradient(white, darkorange);
+	*/
 }
 
 .card-container.card {
@@ -13,7 +16,25 @@ html {
 	border-radius: 15px;
 }
 
+#topleftlogo {
+	width: 100%;
+}
 
+.row {
+	padding-top: 2em;
+	padding-bottom: 1em;
+}
+
+#searchBox {
+	border: 0px solid;
+	background-color: transparent;
+	outline: none;
+	vertical-align: sub;
+}
+
+#searchBox:focus {
+	border-bottom: 1px solid;
+}
 
 
 /*
