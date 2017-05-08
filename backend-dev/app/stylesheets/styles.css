@@ -59,10 +59,10 @@ hr {
 }
 
 .mainContentSubtitle {
-    text-align:center;
-    color: darkorange;
-    font-weight: 300;
-    font-size: 1.25em;
+	text-align: center;
+	color: darkorange;
+	font-weight: 300;
+	font-size: 1.25em;
 }
 
 .headerIcon {
@@ -83,9 +83,9 @@ hr.header {
 }
 
 .publisherBox {
-    background-color: transparent;
-    margin-bottom: 15px;
-    margin-top: 15px;
+	background-color: transparent;
+	margin-bottom: 15px;
+	margin-top: 15px;
 }
 
 .postImage {
@@ -199,16 +199,16 @@ p.postCreatorApprove {
 }
 
 .publisherThumbImage {
-    width: 10em;
+	width: 10em;
 	height: 10em;
-    margin: auto;
-    display: block;
+	margin: auto;
+	display: block;
 }
 
 .publisherThumbName {
-    text-align: center;
-    font-size: 1.25em;
-    color: rgba(0, 0, 0, 0.64);
+	text-align: center;
+	font-size: 1.25em;
+	color: rgba(0, 0, 0, 0.64);
 }
 
 .one {

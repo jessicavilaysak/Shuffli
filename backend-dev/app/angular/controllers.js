@@ -2,7 +2,20 @@
 var shuffliApp = angular.module("shuffli", ['ngRoute', 'ui.bootstrap']);
 
 shuffliApp.controller('mainController', function ($scope, $location) {
-    
+
+
+	$scope.showNavbar = function () {
+		var path = $location.path();
+
+		if (path == '/login' || path == '/signup') {
+			return false;
+		}
+		return true;
+	};
+});
+
+shuffliApp.controller('signupController', function ($scope, $location) {
+
 });
 
 shuffliApp.controller('loginController', function ($scope, $location, $timeout) {
@@ -19,10 +32,26 @@ shuffliApp.controller('loginController', function ($scope, $location, $timeout) 
 
 shuffliApp.controller('publisherController', function ($scope, $location, $timeout) {
 	$scope.publishers = [
-        {"publisherId": "010102", "publisherName": "Marketing", "publisherImageURL": "marketing.png"},
-        {"publisherId": "024024", "publisherName": "Coffee Club", "publisherImageURL": "coffeeclub.jpg"},
-        {"publisherId": "024222", "publisherName": "Flight Centre", "publisherImageURL": "flightcentre.jpg"},
-        {"publisherId": "248024", "publisherName": "Bag Shop", "publisherImageURL": "bagshop.jpg"}
+		{
+			"publisherId": "010102",
+			"publisherName": "Marketing",
+			"publisherImageURL": "marketing.png"
+		},
+		{
+			"publisherId": "024024",
+			"publisherName": "Coffee Club",
+			"publisherImageURL": "coffeeclub.jpg"
+		},
+		{
+			"publisherId": "024222",
+			"publisherName": "Flight Centre",
+			"publisherImageURL": "flightcentre.jpg"
+		},
+		{
+			"publisherId": "248024",
+			"publisherName": "Bag Shop",
+			"publisherImageURL": "bagshop.jpg"
+		}
     ];
 });
 
