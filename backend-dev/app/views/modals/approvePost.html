@@ -1,0 +1,67 @@
+<!-- Modal -->
+<div class="modal fade" id="approvePostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Approve Post</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid approveContainer">
+					<div class="row">
+						<div class="col-md-6">
+							<img data-ng-src="{{postToApprove.imageURL}}" class="postImageApprove" />
+						</div>
+						<div class="col-md-6">
+							<div class="row postCreatorRow">
+								<div class="col-xs-3 postCreatorImage">
+									<div class="user userApprove pull-right" style="background-image:url('images/creators/{{postToApprove.creatorImageURL}}')">
+									</div>
+								</div>
+								<div class="col-xs-7 postCreator">
+									<p class="postCreatorName postCreatorNameApprove">{{postToApprove.creatorName}}</p>
+									<p class="postCreatorApprove">{{postToApprove.creator}}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group">
+									<label for="description">Description:</label>
+									<textarea class="form-control" rows="5" id="description" maxlength="200" data-ng-model="postToApprove.description"></textarea>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<button type="button" class="btn btn-lg btn-primary btn-block" ng-model="approvePostToFacebook" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+        <i class="fa fa-facebook fa-2x pull-left" aria-hidden="true" ></i> Post to<br />Facebook
+    </button>
+								</div>
+								<div class="col-xs-6">
+									<button type="button" class="btn btn-lg btn-danger btn-block" ng-model="approvePostToPinterest" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+        <i class="fa fa-pinterest fa-2x pull-left" aria-hidden="true"></i> Post to<br />Pinterest
+    </button>
+								</div>
+							</div>
+							<div class="row">
+
+								<div class="col-xs-6" ng-show="approvePostToFacebook">
+									<div class="checkbox" ng-repeat="page in facebookPages">
+										<label><input type="checkbox" value="page">{{page}}</label>
+									</div>
+								</div>
+								<div class="col-xs-6" ng-show="approvePostToPinterest">
+									<div class="checkbox" ng-repeat="board in pinterestBoards">
+										<label><input type="checkbox" value="board">{{board}}</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-success" ng-disabled="!approvePostToFacebook && !approvePostToPinterest"><i class="fa fa-check" aria-hidden="true"></i> Post</button>
+				</div>
+			</div>
+		</div>
+	</div>

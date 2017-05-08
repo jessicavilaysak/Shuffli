@@ -7,14 +7,22 @@
 	<title>Shuffli</title>
 	<!-- Latest compiled and minified CSS -->
 	<link href="./css/font-awesome.min.css" rel="stylesheet">
+	<link href="./stylesheets/navbar.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Material style sheet -->
 	<link rel="stylesheet" href="stylesheets/styles.css">
 </head>
 
 <body data-ng-controller="mainController">
 	<div class="container">
+        
+        <div ng-include="'views/header.html'"></div>
+        
+        <div class="mainContent">
 		<div data-ng-view>
+
 		</div>
+        </div>
 	</div>
 
 
@@ -26,6 +34,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<!-- Angular JavaScript  -->
 	<script src="./js/angular.min.js"></script>
+	<script src="./js/angular-ui.js"></script>
 	<script src="./js/angular-route.min.js"></script>
 	<script src="./js/angular-local-storage.min.js"></script>
 	<!-- Main Application JavaScript -->
@@ -40,6 +49,8 @@
 	<script src="./angular/services.js"></script>
 	<!-- Angular Bootbox Plugin -->
 	<script src="./js/bootbox.min.js"></script>
+	<!-- Custom JS Plugin -->
+	<script src="./js/custom.js"></script>
 </body>
 
 </html>

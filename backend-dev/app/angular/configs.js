@@ -10,6 +10,10 @@ shuffliApp.config(function ($routeProvider,$locationProvider) {
 		templateUrl: 'views/dashboardView.html',
 		controller: 'dashboardController'
 	})
+    .when('/publishers', {
+		templateUrl: 'views/publishersView.html',
+		controller: 'publisherController'
+	})
 	.when('/login', {
 		templateUrl: 'views/loginView.html',
 		controller: 'loginController'

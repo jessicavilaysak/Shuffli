@@ -1,20 +1,21 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-2">
-			<img src="/images/shuffli-text.png" id="topleftlogo"/>
-		</div>
-		<div class="col-md-8">
-			
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-2">
+
+	
+
+	
+
+	
+        <div ng-include="'views/modals/approvePost.html'"></div>
 		<div class="row">
-			<div class="col-xs-2"><i class="fa fa-search fa-2x" aria-hidden="true"></i></div>
-			<div class="col-xs-10"><input type="text" name="search" placeholder="Search" id="searchBox"></div>
+			<div class="col-xs-12">
+				<h2 class="mainContentHeader">Dashboard</h2>
+			</div>
+			<div class="col-xs-12">
+				<hr />
+			</div>
 		</div>
-			
-		</div>
-		<div class="col-md-8"></div>
-	</div>
+		<div class="row">
+			<div data-ng-repeat="post in posts">
+				<div ng-include="'views/thumbs/dashboardThumb.html'"></div>
+			</div>
 </div>
+	
