@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="col-xs-12">
+		<h2 class="mainContentHeader">Creators</h2>
+		<p class="mainContentSubtitle">View and manage your content creators</p>
+	</div>
+	<div class="col-xs-12">
+		<hr />
+	</div>
+</div>
+<div class="row">
+	<div data-ng-repeat="creator in creators">
+		<div ng-include="'views/thumbs/creatorThumb.html'"></div>
+	</div>
+</div>

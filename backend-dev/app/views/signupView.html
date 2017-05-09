@@ -7,25 +7,24 @@
 		<hr />
 	</div>
 </div>
-<div class="row">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-6">
-			<div class="form-group">
-				<label for="exampleInputEmail1">Email address</label>
-				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-				<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+				<input class="form-control" type="text" placeholder="Email Address">
 			</div>
 		</div>
 		<div class="col-md-6">
-			<div class="form-group">
-				<label for="exampleInputPassword1">Password</label>
-				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+				<input class="form-control" type="password" placeholder="Password">
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-12">
-			<button type="submit" class="btn btn-primary pull-right">Submit</button>
+			<button type="submit" class="btn btn-warning btn-lg pull-right" ng-click="accountSetup()"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</button>
 		</div>
 	</div>
 </div>

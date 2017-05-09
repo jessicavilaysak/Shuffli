@@ -15,14 +15,14 @@
 
 <body data-ng-controller="mainController">
 	<div class="container">
-        
-        <div ng-include="'views/header.html'"></div>
-        
-        <div class="mainContent">
-		<div data-ng-view>
 
+		<div ng-include="'views/header.html'"></div>
+
+		<div class="mainContent">
+			<div data-ng-view>
+
+			</div>
 		</div>
-        </div>
 	</div>
 
 
@@ -51,6 +51,12 @@
 	<script src="./js/bootbox.min.js"></script>
 	<!-- Custom JS Plugin -->
 	<script src="./js/custom.js"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js"></script>
+
+	<!-- If you're using Stripe for payments -->
+	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 </body>
 
 </html>

@@ -1,0 +1,86 @@
+<div class="row">
+	<div class="col-xs-12">
+		<h2 class="mainContentHeader">New Account Setup</h2>
+		<p class="mainContentSubtitle">Enter the appropriate information to complete your Shuffli account setup</p>
+	</div>
+	<div class="col-xs-12">
+		<hr />
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+			<label for="companyName" class="pull-right formLabel">Company Name:</label>
+		</div>
+		<div class="col-md-8">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-briefcase fa-fw"></i></span>
+				<input class="form-control" type="text" placeholder="Name">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<hr />
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<label for="companyName" class="pull-right formLabel">Categories:</label>
+		</div>
+		<div class="col-md-8">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-sitemap fa-fw"></i></span>
+				<input class="form-control" type="text" placeholder="Category" ng-model="categoryEntry">
+				<span class="input-group-btn">
+                  <button class = "btn btn-success" type = "button" ng-click="addCategory(categoryEntry)">
+                     <i class="fa fa-plus" aria-hidden="true"></i>
+                  </button>
+               </span>
+			</div><br />
+			<div class="list-group">
+				<a class="list-group-item clearfix" ng-repeat="category in categories"><i class="fa fa-tags fa-fw" aria-hidden="true"></i>&nbsp; {{category}}<span class="pull-right">
+      <button class="btn btn-xs btn-danger" ng-click="removeCategory(category)"><i class="fa fa-minus" aria-hidden="true"></i></button></span>
+      </button>
+    </span></a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<hr />
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<label for="companyName" class="pull-right formLabel">Invite Creators:</label>
+		</div>
+		<div class="col-md-8">
+			<div class="row">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-users fa-fw"></i></span>
+					<input class="form-control" type="text" placeholder="Store Name" ng-model="creatorEntry.name">
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+					<input class="form-control" type="text" placeholder="Email Address" ng-model="creatorEntry.email">
+				</div>
+			</div>
+			<div class="row">
+				<button class="btn btn-success pull-right" type="button" ng-click="addCreator()">
+                     <i class="fa fa-plus" aria-hidden="true"></i> Add Creator
+                  </button>
+			</div>
+			<br />
+			<div class="list-group">
+				<a class="list-group-item clearfix" ng-repeat="creator in creators"><i class="fa fa-share-alt fa-fw" aria-hidden="true"></i>&nbsp; {{creator.name}} ({{creator.email}})<span class="pull-right">
+      <button class="btn btn-xs btn-danger" ng-click="removeCreator(creator)"><i class="fa fa-minus" aria-hidden="true"></i></button></span>
+      </button>
+    </span></a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<button type="submit" class="btn btn-warning btn-lg pull-right" ng-click="makePayment()"><i class="fa fa-credit-card" aria-hidden="true"></i> Continue to Payment</button>
+		</div>
+	</div>
+</div>

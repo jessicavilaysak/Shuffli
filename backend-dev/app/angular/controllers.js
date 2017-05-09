@@ -7,15 +7,53 @@ shuffliApp.controller('mainController', function ($scope, $location) {
 	$scope.showNavbar = function () {
 		var path = $location.path();
 
-		if (path == '/login' || path == '/signup') {
+		if (path == '/login' || path == '/signup' || path == '/accountsetup' || path == '/paymentsetup') {
 			return false;
 		}
 		return true;
 	};
 });
 
-shuffliApp.controller('signupController', function ($scope, $location) {
+shuffliApp.controller('paymentSetupController', function ($scope, $location) {
 
+});
+
+shuffliApp.controller('setupController', function ($scope, $location) {
+	$scope.categories = [];
+	$scope.creators = [];
+	$scope.creatorEntry = [{}];
+
+	$scope.makePayment = function () {
+		$location.path('/paymentsetup');
+	}
+
+	$scope.addCreator = function () {
+		$scope.creators.push($scope.creatorEntry);
+
+		//clear the category field
+		$scope.creatorEntry = [{}];
+	}
+
+	$scope.removeCreator = function (creator) {
+		$scope.creators.splice($scope.creators.indexOf(creator), 1);
+	}
+
+	$scope.addCategory = function (category) {
+		$scope.categories.push(category);
+
+		//clear the category field
+		$scope.categoryEntry = '';
+	}
+
+	$scope.removeCategory = function (category) {
+		$scope.categories.splice($scope.categories.indexOf(category), 1);
+	}
+});
+
+shuffliApp.controller('signupController', function ($scope, $location) {
+	$scope.accountSetup = function () {
+		$location.path('/accountsetup');
+	}
 });
 
 shuffliApp.controller('loginController', function ($scope, $location, $timeout) {
@@ -30,8 +68,8 @@ shuffliApp.controller('loginController', function ($scope, $location, $timeout) 
 	};
 });
 
-shuffliApp.controller('publisherController', function ($scope, $location, $timeout) {
-	$scope.publishers = [
+shuffliApp.controller('creatorsController', function ($scope, $location, $timeout) {
+	$scope.creators = [
 		{
 			"publisherId": "010102",
 			"publisherName": "Marketing",
@@ -127,8 +165,8 @@ shuffliApp.controller('dashboardController', function ($scope, $uibModal, $log) 
 
 	$scope.postToApprove = null;
 
-	$scope.approvePostToFacebook = 1;
-	$scope.approvePostToPinterest = 0;
+	$scope.approvePostToFacebook = true;
+	$scope.approvePostToPinterest = false;
 
 
 	$scope.facebookPages = [
