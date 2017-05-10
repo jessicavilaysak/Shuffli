@@ -8,8 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		2253B2941EC1276600D4545D /* ViewControllerGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2253B2931EC1276600D4545D /* ViewControllerGenerate.swift */; };
+<<<<<<< HEAD
 		22E497941EC3020200B419E9 /* ViewControllerViewposts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E497931EC3020200B419E9 /* ViewControllerViewposts.swift */; };
 		22E497961EC304AD00B419E9 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E497951EC304AD00B419E9 /* CustomCell.swift */; };
+=======
+		22C1DF271EC32A1C0022DC01 /* ViewControllerHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C1DF261EC32A1C0022DC01 /* ViewControllerHomePage.swift */; };
+		22C1DF2B1EC32DE40022DC01 /* CustomCellUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C1DF2A1EC32DE40022DC01 /* CustomCellUser.swift */; };
+		22E497941EC3020200B419E9 /* ViewControllerViewposts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E497931EC3020200B419E9 /* ViewControllerViewposts.swift */; };
+		22E497961EC304AD00B419E9 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E497951EC304AD00B419E9 /* CustomCell.swift */; };
+		22E497981EC3142400B419E9 /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E497971EC3142400B419E9 /* Datasource.swift */; };
+		22E4979E1EC31B0300B419E9 /* ViewControllerHome2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4979D1EC31B0300B419E9 /* ViewControllerHome2.swift */; };
+>>>>>>> refs/remotes/origin/master
 		27FBDE743860508C6E38441C /* Pods_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC143C919DB36CDC3766244B /* Pods_Test.framework */; };
 		615BC3BD1E922B9800F91FA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 615BC3BC1E922B9800F91FA3 /* GoogleService-Info.plist */; };
 		617CEC1E1E8CE0D600047578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617CEC1D1E8CE0D600047578 /* AppDelegate.swift */; };
@@ -42,8 +51,17 @@
 
 /* Begin PBXFileReference section */
 		2253B2931EC1276600D4545D /* ViewControllerGenerate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerGenerate.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		22E497931EC3020200B419E9 /* ViewControllerViewposts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerViewposts.swift; sourceTree = "<group>"; };
 		22E497951EC304AD00B419E9 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+=======
+		22C1DF261EC32A1C0022DC01 /* ViewControllerHomePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHomePage.swift; sourceTree = "<group>"; };
+		22C1DF2A1EC32DE40022DC01 /* CustomCellUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellUser.swift; sourceTree = "<group>"; };
+		22E497931EC3020200B419E9 /* ViewControllerViewposts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerViewposts.swift; sourceTree = "<group>"; };
+		22E497951EC304AD00B419E9 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		22E497971EC3142400B419E9 /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
+		22E4979D1EC31B0300B419E9 /* ViewControllerHome2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHome2.swift; sourceTree = "<group>"; };
+>>>>>>> refs/remotes/origin/master
 		295B334D13A23A1791436427 /* Pods-TestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestUITests/Pods-TestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3DC1C5D0CE91DE77950BEC71 /* Pods-TestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestTests/Pods-TestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		593188C970F45C98C93B177D /* Pods-TestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestUITests/Pods-TestUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +150,13 @@
 				2253B2931EC1276600D4545D /* ViewControllerGenerate.swift */,
 				22E497931EC3020200B419E9 /* ViewControllerViewposts.swift */,
 				22E497951EC304AD00B419E9 /* CustomCell.swift */,
+<<<<<<< HEAD
+=======
+				22E497971EC3142400B419E9 /* Datasource.swift */,
+				22E4979D1EC31B0300B419E9 /* ViewControllerHome2.swift */,
+				22C1DF261EC32A1C0022DC01 /* ViewControllerHomePage.swift */,
+				22C1DF2A1EC32DE40022DC01 /* CustomCellUser.swift */,
+>>>>>>> refs/remotes/origin/master
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -459,9 +484,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				2253B2941EC1276600D4545D /* ViewControllerGenerate.swift in Sources */,
 				617CEC201E8CE0D600047578 /* ViewController.swift in Sources */,
 				22E497961EC304AD00B419E9 /* CustomCell.swift in Sources */,
+=======
+				22E497981EC3142400B419E9 /* Datasource.swift in Sources */,
+				22C1DF2B1EC32DE40022DC01 /* CustomCellUser.swift in Sources */,
+				2253B2941EC1276600D4545D /* ViewControllerGenerate.swift in Sources */,
+				617CEC201E8CE0D600047578 /* ViewController.swift in Sources */,
+				22E497961EC304AD00B419E9 /* CustomCell.swift in Sources */,
+				22C1DF271EC32A1C0022DC01 /* ViewControllerHomePage.swift in Sources */,
+				22E4979E1EC31B0300B419E9 /* ViewControllerHome2.swift in Sources */,
+>>>>>>> refs/remotes/origin/master
 				617CEC1E1E8CE0D600047578 /* AppDelegate.swift in Sources */,
 				22E497941EC3020200B419E9 /* ViewControllerViewposts.swift in Sources */,
 			);

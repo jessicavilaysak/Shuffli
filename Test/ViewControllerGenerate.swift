@@ -10,7 +10,10 @@ import UIKit
 
 class ViewControllerGenerate: UIViewController {
 
+<<<<<<< HEAD
    
+=======
+>>>>>>> refs/remotes/origin/master
     @IBOutlet weak var btn_generate: UIButton!
     @IBOutlet weak var fld_password: UITextField!
     @IBOutlet weak var fld_username: UITextField!
@@ -19,7 +22,10 @@ class ViewControllerGenerate: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/master
         // Do any additional setup after loading the view.
     }
 
@@ -31,13 +37,21 @@ class ViewControllerGenerate: UIViewController {
     @IBAction func clickBtnGenerate(_ sender: UIButton) {
         //let tempString : String = "temp_user_";
         var tempString = "temp_user_";
+<<<<<<< HEAD
        
+=======
+        let userCount : Int = dataSource.currentCount
+>>>>>>> refs/remotes/origin/master
         if(userCount < 10)
             {tempString += "0"+String(userCount);}
         else
             {tempString += String(userCount);}
         
         fld_username.text = tempString;
+<<<<<<< HEAD
+=======
+        dataSource.userArray.append(tempString)
+>>>>>>> refs/remotes/origin/master
         tempString = "";
         var i=0;
         while i < 6 {
@@ -45,7 +59,11 @@ class ViewControllerGenerate: UIViewController {
             i = i + 1;
         }
         fld_password.text = tempString;
+<<<<<<< HEAD
         self.userCount = self.userCount + 1;
+=======
+        dataSource.currentCount = dataSource.currentCount + 1
+>>>>>>> refs/remotes/origin/master
     }
     
     
