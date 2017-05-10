@@ -10,7 +10,6 @@ import UIKit
 
 class ViewControllerGenerate: UIViewController {
 
-   
     @IBOutlet weak var btn_generate: UIButton!
     @IBOutlet weak var fld_password: UITextField!
     @IBOutlet weak var fld_username: UITextField!
@@ -19,7 +18,6 @@ class ViewControllerGenerate: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -31,13 +29,14 @@ class ViewControllerGenerate: UIViewController {
     @IBAction func clickBtnGenerate(_ sender: UIButton) {
         //let tempString : String = "temp_user_";
         var tempString = "temp_user_";
-       
+        let userCount : Int = dataSource.currentCount
         if(userCount < 10)
             {tempString += "0"+String(userCount);}
         else
             {tempString += String(userCount);}
         
         fld_username.text = tempString;
+        dataSource.userArray.append(tempString)
         tempString = "";
         var i=0;
         while i < 6 {
@@ -45,7 +44,7 @@ class ViewControllerGenerate: UIViewController {
             i = i + 1;
         }
         fld_password.text = tempString;
-        self.userCount = self.userCount + 1;
+        dataSource.currentCount = dataSource.currentCount + 1
     }
     
     

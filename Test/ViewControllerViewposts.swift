@@ -18,7 +18,6 @@ class ViewControllerViewposts: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -28,7 +27,7 @@ class ViewControllerViewposts: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return imageArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
