@@ -1,5 +1,5 @@
 /*global angular*/
-var shuffliApp = angular.module("shuffli", ['ngRoute', 'ui.bootstrap']);
+var shuffliApp = angular.module("shuffli", ['ngRoute', 'ui.bootstrap', 'ngStorage']);
 
 shuffliApp.controller('mainController', function ($scope, $location) {
 
@@ -15,7 +15,12 @@ shuffliApp.controller('mainController', function ($scope, $location) {
 });
 
 shuffliApp.controller('paymentSetupController', function ($scope, $location) {
-
+	$scope.startSubscription = function () {
+		bootbox.alert("Payment was successful, you will now be taken to the dashboard!", function () {
+			$location.path('/dashboard');
+			$scope.$apply();
+		});
+	}
 });
 
 shuffliApp.controller('setupController', function ($scope, $location) {
@@ -93,81 +98,129 @@ shuffliApp.controller('creatorsController', function ($scope, $location, $timeou
     ];
 });
 
-shuffliApp.controller('dashboardController', function ($scope, $uibModal, $log) {
-	$scope.posts = [
-		{
-			"id": "000001",
-			"creator": "Marketing",
-			"creatorName": "Anonymous",
-			"creatorImageURL": "marketing.png",
-			"description": "Social media is evolving like never before",
-			"imageURL": "images/posts/1.jpg"
+shuffliApp.controller('archiveController', function ($scope, $location, $sessionStorage) {
+	$scope.$storage = $sessionStorage;
+
+	if (typeof $scope.$storage.archivedPosts == 'undefined') {
+		$scope.$storage.archivedPosts = [
+			{
+				"id": "000008",
+				"creator": "Marketing",
+				"daysLeft": 45,
+				"creatorName": "Anonymous",
+				"creatorImageURL": "marketing.png",
+				"description": "Luxury apartment suites at the Maxtra Hotel",
+				"imageURL": "images/posts/8.jpg"
 		},
-		{
-			"id": "000002",
-			"creator": "Coffee Club",
-			"creatorName": "John Doe",
-			"creatorImageURL": "coffeeclub.jpg",
-			"description": "Have you tried the worlds greatest coffee?",
-			"imageURL": "images/posts/2.jpg"
+			{
+				"id": "000005",
+				"creator": "Coffee Club",
+				"daysLeft": 12,
+				"creatorName": "Alice Gregory",
+				"creatorImageURL": "coffeeclub.jpg",
+				"description": "New beans with exquisite flavours have arrived!",
+				"imageURL": "images/posts/5.jpg"
 		},
-		{
-			"id": "000003",
-			"creator": "Flight Centre",
-			"creatorName": "Bob Howe",
-			"creatorImageURL": "flightcentre.jpg",
-			"description": "Get away from reality with Flight Centre.",
-			"imageURL": "images/posts/3.jpg"
+			{
+				"id": "000006",
+				"creator": "Flight Centre",
+				"daysLeft": 22,
+				"creatorName": "Fred Flowerpot",
+				"creatorImageURL": "flightcentre.jpg",
+				"description": "Cheap flights to and from Hong Kong for a limited time.",
+				"imageURL": "images/posts/6.jpg"
 		},
-		{
-			"id": "000004",
-			"creator": "Bag Shop",
-			"creatorName": "Jane Doe",
-			"creatorImageURL": "bagshop.jpg",
-			"description": "Check out our new bag range that have just arrived!",
-			"imageURL": "images/posts/4.jpg"
-		},
-		{
-			"id": "000003",
-			"creator": "Flight Centre",
-			"creatorName": "Bob Howe",
-			"creatorImageURL": "flightcentre.jpg",
-			"description": "Get away from reality with Flight Centre.",
-			"imageURL": "images/posts/3.jpg"
-		},
-		{
-			"id": "000004",
-			"creator": "Bag Shop",
-			"creatorName": "Jane Doe",
-			"creatorImageURL": "bagshop.jpg",
-			"description": "Check out our new bag range that have just arrived!",
-			"imageURL": "images/posts/4.jpg"
-		},
-		{
-			"id": "000003",
-			"creator": "Flight Centre",
-			"creatorName": "Bob Howe",
-			"creatorImageURL": "flightcentre.jpg",
-			"description": "Get away from reality with Flight Centre.",
-			"imageURL": "images/posts/3.jpg"
-		},
-		{
-			"id": "000004",
-			"creator": "Bag Shop",
-			"creatorName": "Jane Doe",
-			"creatorImageURL": "bagshop.jpg",
-			"description": "Check out our new bag range that have just arrived!",
-			"imageURL": "images/posts/4.jpg"
+			{
+				"id": "000007",
+				"creator": "Bag Shop",
+				"daysLeft": 32,
+				"creatorName": "Jayden Wood",
+				"creatorImageURL": "bagshop.jpg",
+				"description": "New woman shoulder bags now available!",
+				"imageURL": "images/posts/7.jpg"
 		}
 	];
+	}
+
+	$scope.unarchivePost = function (post) {
+		var dashboardPost = JSON.parse(JSON.stringify(post));
+		//add to the dashboard posts array
+		$scope.$storage.posts.push(dashboardPost);
+		//delete the post from posts array
+		$scope.$storage.archivedPosts.splice($scope.$storage.archivedPosts.indexOf(post), 1);
+		$scope.$apply();
+	}
+
+	$scope.unarchivePostButton = function (post) {
+		bootbox.confirm({
+			title: "Unarchive Post ID: " + post.id,
+			message: "Are you sure you want to put this post back onto the dashboard?",
+			buttons: {
+				cancel: {
+					label: '<i class="fa fa-times"></i> Cancel'
+				},
+				confirm: {
+					label: '<i class="fa fa-check"></i> Confirm'
+				}
+			},
+			callback: function (result) {
+				if (result) {
+					$scope.unarchivePost(post);
+				}
+				console.log(result);
+			}
+		});
+	};
+});
+
+shuffliApp.controller('dashboardController', function ($scope, $uibModal, $log, $sessionStorage) {
+	$scope.$storage = $sessionStorage;
+
+	console.log($scope.$storage.posts);
+
+	//set default posts if new session
+	if (typeof $scope.$storage.posts == 'undefined') {
+		$scope.$storage.posts = [
+			{
+				"id": "000001",
+				"creator": "Marketing",
+				"creatorName": "Anonymous",
+				"creatorImageURL": "marketing.png",
+				"description": "Social media is evolving like never before",
+				"imageURL": "images/posts/1.jpg"
+		},
+			{
+				"id": "000002",
+				"creator": "Coffee Club",
+				"creatorName": "John Doe",
+				"creatorImageURL": "coffeeclub.jpg",
+				"description": "Have you tried the worlds greatest coffee?",
+				"imageURL": "images/posts/2.jpg"
+		},
+			{
+				"id": "000003",
+				"creator": "Flight Centre",
+				"creatorName": "Bob Howe",
+				"creatorImageURL": "flightcentre.jpg",
+				"description": "Get away from reality with Flight Centre.",
+				"imageURL": "images/posts/3.jpg"
+		},
+			{
+				"id": "000004",
+				"creator": "Bag Shop",
+				"creatorName": "Jane Doe",
+				"creatorImageURL": "bagshop.jpg",
+				"description": "Check out our new bag range that have just arrived!",
+				"imageURL": "images/posts/4.jpg"
+		}
+	];
+	}
+
+
 
 	$scope.modalAnimationsEnabled = true;
 
 	$scope.postToApprove = null;
-
-	$scope.approvePostToFacebook = true;
-	$scope.approvePostToPinterest = false;
-
 
 	$scope.facebookPages = [
 		"Eastland Main",
@@ -186,13 +239,25 @@ shuffliApp.controller('dashboardController', function ($scope, $uibModal, $log) 
 		$("#approvePostModal").modal()
 	};
 
+	$scope.makePost = function (post) {
+		$('#approvePostModal').modal('toggle');
+		//remove post from dashboard
+		$scope.$storage.posts.splice($scope.$storage.posts.indexOf(post), 1);
+
+		bootbox.alert("Post was approved and posted!");
+	}
+
 	$scope.archivePost = function (post) {
-		console.log("archiving post.... " + post.id);
-		console.log($scope.posts);
+		//make a deep copy
+		var archivePost = JSON.parse(JSON.stringify(post));
+		//set expiry
+		archivePost.daysLeft = 90;
+
 		//delete the post from posts array
-		$scope.posts.splice($scope.posts.indexOf(post), 1);
-		console.log($scope.posts);
-		console.log("archiving post after.... " + post.id);
+		$scope.$storage.posts.splice($scope.$storage.posts.indexOf(post), 1);
+
+		$scope.$storage.archivedPosts.push(archivePost);
+
 		$scope.$apply();
 	}
 

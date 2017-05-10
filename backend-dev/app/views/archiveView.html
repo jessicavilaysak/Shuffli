@@ -1,0 +1,16 @@
+<div ng-include="'views/modals/approvePost.html'">
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<h2 class="mainContentHeader">Archived Posts</h2>
+		<p class="mainContentSubtitle">View and manage posts archived from the dashboard, posts will stay archived for 90 days</p>
+	</div>
+	<div class="col-xs-12">
+		<hr />
+	</div>
+</div>
+<div class="row">
+	<div data-ng-repeat="post in $storage.archivedPosts | orderBy:'daysLeft'" ">
+		<div ng-include=" 'views/thumbs/archivedThumb.html' "></div>
+	</div>
+</div>

@@ -13,10 +13,20 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="#/dashboard">Dashboard</a></li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#/dashboard">Dashboard
+        <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#/archived">Archived</a></li>
+					</ul>
+				</li>
 				<li><a href="#/creators">Creators</a></li>
-				<li><a href="#">Account</a></li>
+				<li><a href="#/accounts">Accounts</a></li>
+				<li><a href="#/settings">Settings</a></li>
+
+
 			</ul>
+			<button class="btn btn-warning navbar-btn pull-right signoutbtn">Sign Out</button>
 		</div>
 		<!-- /.navbar-collapse -->
 	</div>

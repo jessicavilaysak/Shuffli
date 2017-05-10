@@ -2,13 +2,13 @@
 shuffliApp.config(function ($routeProvider, $locationProvider) {
 	$locationProvider.hashPrefix('');
 	$routeProvider
-		.when('/', {
-			templateUrl: 'views/loginView.html',
-			controller: 'loginController'
-		})
 		.when('/dashboard', {
 			templateUrl: 'views/dashboardView.html',
 			controller: 'dashboardController'
+		})
+		.when('/archived', {
+			templateUrl: 'views/archiveView.html',
+			controller: 'archiveController'
 		})
 		.when('/creators', {
 			templateUrl: 'views/creatorsView.html',
@@ -29,5 +29,7 @@ shuffliApp.config(function ($routeProvider, $locationProvider) {
 		.when('/signup', {
 			templateUrl: 'views/signupView.html',
 			controller: 'signupController'
+		}).otherwise({
+			redirectTo: "/signup"
 		});
 });

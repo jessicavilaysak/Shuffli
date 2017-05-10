@@ -3,13 +3,14 @@
 <div class="row">
 	<div class="col-xs-12">
 		<h2 class="mainContentHeader">Dashboard</h2>
+		<p class="mainContentSubtitle">View and manage posts sent in by your content creators</p>
 	</div>
 	<div class="col-xs-12">
 		<hr />
 	</div>
 </div>
 <div class="row">
-	<div data-ng-repeat="post in posts">
-		<div ng-include="'views/thumbs/dashboardThumb.html'"></div>
+	<div data-ng-repeat="post in $storage.posts  | orderBy:'-id'" ">
+		<div ng-include=" 'views/thumbs/dashboardThumb.html' "></div>
 	</div>
 </div>

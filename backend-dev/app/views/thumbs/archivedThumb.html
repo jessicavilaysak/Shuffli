@@ -1,6 +1,10 @@
 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-animate="'animate'">
 	<div class="postBox">
 		<img data-ng-src="{{post.imageURL}}" class="postImage" />
+		<div>
+			<p class="postExpiry"><i class="fa fa-times" aria-hidden="true"></i> Expires in {{post.daysLeft}} days</p>
+		</div>
+		<hr />
 		<p class="postDesc">
 			{{post.description}}
 		</p>
@@ -19,11 +23,8 @@
 		</div>
 		<hr />
 		<div class="row postOptions">
-			<div class="col-xs-6 postArchive" data-ng-click="archivePostButton(post)">
-				<i class="fa fa-archive" data-toggle="tooltip" title="Archive" aria-hidden="true"></i>
-			</div>
-			<div class="col-xs-6 postApprove" data-toggle="modal" data-target="#myModal" data-ng-click="approvePostButton(post)">
-				<i class="fa fa-check" aria-hidden="true"></i>
+			<div class="col-xs-12 postUndo" data-ng-click="unarchivePostButton(post)">
+				<i class="fa fa-undo" data-toggle="tooltip" title="Archive" aria-hidden="true"></i>
 			</div>
 		</div>
 	</div>
