@@ -10,6 +10,9 @@ import UIKit
 
 class CustomCell: UITableViewCell {
 
+    @IBOutlet var buttonApprove: UIButton!
+    @IBOutlet var buttonDelete: UIButton!
+    @IBOutlet var fld_caption: UITextView!
     @IBOutlet var photo: UIImageView!
   
     override func awakeFromNib() {

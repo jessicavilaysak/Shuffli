@@ -10,15 +10,77 @@ import UIKit
 
 class ViewControllerViewposts: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
-    
     @IBOutlet var viewposts: UITableView!
     
-    var imageArray = [UIImage(named: "drop"), UIImage(named: "drop"), UIImage(named: "drop"), UIImage(named: "drop"), UIImage(named: "drop"), UIImage(named: "drop")]
+    @IBAction func buttonApprove(sender: UIButton) {
+        let refreshAlert = UIAlertController(title: "SUBMIT TO DASHBOARD", message: "Are you sure you wish to submit this post?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
+            
+            var index = Int(sender.tag);
+            
+            //delete from data source
+            if index == dataSource.postsobj.count
+            {
+                index = index - 1
+            }
+            dataSource.postsobj.remove(at: index);
+            
+            //tell collection view data source has changed
+            let item = IndexPath(item: index, section: 0);
+            self.viewposts.deleteRows(at: [item], with: UITableViewRowAnimation.fade)
+            
+            print("Handle Ok logic here")
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    @IBAction func buttonDelete(sender: UIButton) {
+       
+        let refreshAlert = UIAlertController(title: "DELETE", message: "Are you sure you wish to delete this post?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
+            
+            var index = Int(sender.tag);
+            
+            //delete from data source
+            if index == dataSource.postsobj.count
+            {
+                index = index - 1
+            }
+            dataSource.postsobj.remove(at: index);
+            
+            //tell collection view data source has changed
+            let item = IndexPath(item: index, section: 0);
+            self.viewposts.deleteRows(at: [item], with: UITableViewRowAnimation.fade)
+            
+            print("Handle Ok logic here")
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+        
+        
+        
+    }
 
+    
     override func viewDidLoad() {
         
-        super.viewDidLoad()
+                super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        viewposts.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,12 +89,27 @@ class ViewControllerViewposts: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return imageArray.count
+        return dataSource.postsobj.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.viewposts.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! CustomCell
-        cell.photo.image = imageArray[indexPath.row]
+        //cell.photo.image = imageArray[indexPath.row]
+        print("count: "+String(dataSource.postsobj.count))
+        if indexPath.row < dataSource.postsobj.count
+        {
+            print("row: "+String(indexPath.row))
+            let temp = dataSource.postsobj[indexPath.row]
+            cell.photo.image = temp.image
+            cell.fld_caption.text = temp.caption
+    
+            
+        }
+        cell.buttonApprove.addTarget(self, action: #selector(buttonApprove), for: UIControlEvents.touchUpInside)
+        cell.buttonApprove.tag = indexPath.row
+        
+        cell.buttonDelete.addTarget(self, action: #selector(buttonDelete), for: UIControlEvents.touchUpInside)
+        cell.buttonDelete.tag = indexPath.row
         
         return cell
     }
