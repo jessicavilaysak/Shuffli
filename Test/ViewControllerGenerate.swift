@@ -17,8 +17,14 @@ class ViewControllerGenerate: UIViewController {
     var userCount : Int = 0;
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        fld_password.text = ""
+        fld_username.text = ""
     }
 
     override func didReceiveMemoryWarning() {

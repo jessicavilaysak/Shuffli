@@ -278,14 +278,12 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOY-9r-Mee">
                                                     <rect key="frame" x="96" y="20" width="29" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="buttonDeleteUser:" destination="YZR-5O-sZO" eventType="touchUpInside" id="UWu-qU-zeZ"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </view>
                                         <size key="customSize" width="150" height="150"/>
                                         <connections>
+                                            <outlet property="deleteUserButton" destination="HOY-9r-Mee" id="gfd-6m-Jgk"/>
                                             <outlet property="fld_username" destination="7jy-9G-PB6" id="ivl-KR-WuV"/>
                                         </connections>
                                     </collectionViewCell>
@@ -315,6 +313,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="profile_grey" selectedImage="profile" id="KIf-XI-FsG"/>
                     <connections>
+                        <outlet property="collectionView" destination="Vt6-dd-Nj3" id="Xut-5u-U4V"/>
                         <outlet property="fld_nouser" destination="kID-gw-K4Y" id="szK-bn-QJW"/>
                         <outlet property="viewusers" destination="Vt6-dd-Nj3" id="NwQ-aH-Wtl"/>
                     </connections>

@@ -9,12 +9,24 @@
 import UIKit
 
 class ViewControllerHomePage: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    
+    @IBOutlet weak var collectionView: UICollectionView!
 
-    @IBAction func buttonDeleteUser(_ sender: Any) {
+    func deleteUserButton(sender: UIButton) {
+        var index = Int(sender.tag);
+        //delete from data source
+        if index == dataSource.userArray.count
+        {
+            index = index - 1
+        }
+        dataSource.userArray.remove(at: index);
         
-        
-        
+        //tell collection view data source has changed
+        let item = IndexPath(item: index, section: 0);
+        self.collectionView.deleteItems(at: [item]);
     }
+    
     @IBOutlet var fld_nouser: UILabel!
     
     @IBOutlet var viewusers: UICollectionView!
@@ -45,6 +57,8 @@ class ViewControllerHomePage: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : CustomCellUser = collectionView.dequeueReusableCell(withReuseIdentifier: "cellUser", for: indexPath) as! CustomCellUser
         cell.fld_username.text = dataSource.userArray[indexPath.row]
+        cell.deleteUserButton.addTarget(self, action: #selector(deleteUserButton), for: UIControlEvents.touchUpInside);
+        cell.deleteUserButton.tag = indexPath.row;
         return cell
     }
     

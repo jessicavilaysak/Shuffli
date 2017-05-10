@@ -12,6 +12,8 @@ class CustomCellUser: UICollectionViewCell {
     
  
     @IBOutlet var fld_username: UILabel!
-
+    
+    @IBOutlet weak var deleteUserButton: UIButton!
+    
     
 }
