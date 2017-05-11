@@ -10,7 +10,9 @@ import UIKit
 
 class ViewControllerHomePage: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    @IBOutlet var fldusername: UILabel!
     
+    @IBOutlet var fldcompany: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
 
     func deleteUserButton(sender: UIButton) {
@@ -31,7 +33,8 @@ class ViewControllerHomePage: UIViewController, UICollectionViewDataSource, UICo
     
     @IBOutlet var viewusers: UICollectionView!
     override func viewDidLoad() {
-        
+        fldusername.text = "AdminMan02"
+        fldcompany.text = "Cotton On (Eastland)"
         if dataSource.userArray.count > 0
         {
             fld_nouser.isHidden = true

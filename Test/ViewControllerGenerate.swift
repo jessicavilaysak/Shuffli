@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerGenerate: UIViewController {
+class ViewControllerGenerate: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var btn_generate: UIButton!
     @IBOutlet weak var fld_password: UITextField!
@@ -16,9 +16,16 @@ class ViewControllerGenerate: UIViewController {
     
     var userCount : Int = 0;
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.fld_password.delegate = self;
+        self.fld_username.delegate = self;
         // Do any additional setup after loading the view.
     }
     

@@ -1,30 +1,28 @@
 //
-//  ViewControllerHome2.swift
+//  ViewControllerHomePageCreator.swift
 //  Test
 //
-//  Created by Jessica Vilaysak on 10/5/17.
+//  Created by Jessica Vilaysak on 11/5/17.
 //  Copyright © 2017 Pranav Joshi. All rights reserved.
 //
 
 import UIKit
 
-class ViewControllerHome2: UIViewController, UITextFieldDelegate {
+class ViewControllerHomePageCreator: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet var fldemail: UITextField!
-    @IBOutlet var fldusername: UITextField!
-    @IBOutlet var fldpassword: UITextField!
-    
+    @IBOutlet var fld_password: UITextField!
+    @IBOutlet var fld_username: UITextField!
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        self.fldemail.delegate = self;
-        self.fldusername.delegate = self;
-        self.fldpassword.delegate = self;
+        
+
+        self.fld_password.delegate = self;
+        self.fld_username.delegate = self;
         // Do any additional setup after loading the view.
     }
 

@@ -11,15 +11,18 @@ import UIKit
 class Datasource {
 
     var name: String!
-    var userArray : [String] = []
+    var userArray : [String] = ["temp_user_00", "temp_user_01", "temp_user_02"]
     var currentCount: Int!
-    var postsobj : [(image: UIImage, caption: String)] = []
-    
+    var postsobj : [(image: UIImage, caption: String)] = [(image: UIImage(named: "1")!, caption: "What a beautiful day"),
+        (image: UIImage(named: "2")!, caption: "What a total uggo"),
+        (image: UIImage(named: "3")!, caption: "I love this!!")
+     ]
+    //var postsobj : [(image: UIImage, caption: String)] = []
     var tempPosts : [String] = ["1", "2", "3", "4"]
 
     init() {
         self.name = "TESTName"
-        currentCount = 0
+        currentCount = 3
         
     }
     
