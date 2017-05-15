@@ -30,11 +30,12 @@ class VC_ACreator_HomePage: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     @IBOutlet var fld_nouser: UILabel!
-    
+
     @IBOutlet var viewusers: UICollectionView!
     override func viewDidLoad() {
         fldusername.text = "AdminMan02"
         fldcompany.text = "Cotton On (Eastland)"
+        fld_nouser.isHidden = false;
         if dataSource.userArray.count > 0
         {
             fld_nouser.isHidden = true

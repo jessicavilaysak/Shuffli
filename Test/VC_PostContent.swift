@@ -10,26 +10,37 @@ import UIKit
 
 class VC_PostContent: UIViewController, UITextViewDelegate {
 
+    @IBOutlet var fld_placeholder: UILabel!
     @IBOutlet var fld_caption: UITextView!
     @IBOutlet var fld_photo: UIImageView!
     
     var count = 1
-    
-    /*func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n" {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
-    }*/
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        fld_caption.delegate = self;
+        fld_caption.text = "Insert caption..."
+        fld_caption.textColor = UIColor.lightGray
         // Do any additional setup after loading the view.
         
         
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Insert caption..."
+            textView.textColor = UIColor.lightGray
+        }
     }
     
     @IBAction func buttonPost(_ sender: Any) {
