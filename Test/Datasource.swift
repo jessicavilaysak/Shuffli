@@ -10,7 +10,7 @@ import UIKit
 
 class Datasource {
 
-    var name: String!
+    var username: String!
     var userArray : [String] = ["temp_user_00", "temp_user_01", "temp_user_02"]
     var currentCount: Int!
     var userNotifications: Int!;
@@ -24,7 +24,7 @@ class Datasource {
     var acceptedPayment: Bool!;
 
     init() {
-        self.name = "TESTName"
+        
         currentCount = 3
         postNotifications = 0;
         acceptedPayment = false;

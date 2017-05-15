@@ -321,6 +321,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="btn_Signin:" destination="j61-WA-o60" eventType="touchUpInside" id="REq-Qz-e4G"/>
                                     <segue destination="MKn-lh-6zB" kind="show" id="Wxi-sn-G5n"/>
                                 </connections>
                             </button>
@@ -427,6 +428,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="btn_Signin:" destination="35m-cm-TIy" eventType="touchUpInside" id="fFh-La-JB5"/>
                                     <segue destination="esT-89-DSM" kind="show" id="dMW-nG-R64"/>
                                 </connections>
                             </button>
@@ -984,11 +986,11 @@
         <image name="whiteBg" width="375" height="389"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Gya-J6-JkK"/>
         <segue reference="h3e-MI-oEy"/>
-        <segue reference="FqH-Ja-7pK"/>
-        <segue reference="gqh-qb-sEj"/>
-        <segue reference="ZOy-Oc-lGr"/>
         <segue reference="LBI-9A-Jjm"/>
+        <segue reference="ZOy-Oc-lGr"/>
+        <segue reference="gqh-qb-sEj"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

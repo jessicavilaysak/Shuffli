@@ -20,6 +20,9 @@ class VC_Creator_Signin: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func btn_Signin(_ sender: Any) {
+        dataSource.username = fld_username.text;
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
