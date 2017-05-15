@@ -14,11 +14,15 @@ class VC_ACreator_Signin: UIViewController, UITextFieldDelegate {
     @IBOutlet var fldusername: UITextField!
     @IBOutlet var fldpassword: UITextField!
     
-
-        
+    @IBAction func btn_Signin(_ sender: Any) {
+        dataSource.username = fldusername.text;
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        
         // Do any additional setup after loading the view.
     }
 

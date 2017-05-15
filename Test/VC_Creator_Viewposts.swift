@@ -19,7 +19,7 @@ class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        fldusername.text = "CreatorMan01"
+        fldusername.text = dataSource.username;
         fldcompany.text = "Cotton On (Eastland)"
         self.hideKeyboardWhenTappedAround()
   

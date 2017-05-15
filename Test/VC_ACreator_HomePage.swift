@@ -33,8 +33,8 @@ class VC_ACreator_HomePage: UIViewController, UICollectionViewDataSource, UIColl
 
     @IBOutlet var viewusers: UICollectionView!
     override func viewDidLoad() {
-        fldusername.text = "Store Manager"
         fldcompany.text = "Coffee Club (Eastland)"
+        fldusername.text = dataSource.username;
         fld_nouser.isHidden = false;
         storeImage.image = Toucan(image: #imageLiteral(resourceName: "CoffeeClub")).maskWithEllipse().image;
         
