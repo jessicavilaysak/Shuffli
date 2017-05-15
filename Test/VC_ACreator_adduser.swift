@@ -8,24 +8,19 @@
 
 import UIKit
 
-class ViewControllerGenerate: UIViewController, UITextFieldDelegate {
+class VC_ACreator_adduser: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var btn_generate: UIButton!
     @IBOutlet weak var fld_password: UITextField!
     @IBOutlet weak var fld_username: UITextField!
     
     var userCount : Int = 0;
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
+
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.fld_password.delegate = self;
-        self.fld_username.delegate = self;
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
     

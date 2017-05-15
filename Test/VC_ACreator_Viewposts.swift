@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerViewposts: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class VC_ACreator_Viewposts: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
     @IBOutlet var viewposts: UITableView!
     
@@ -75,7 +75,8 @@ class ViewControllerViewposts: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         
-                super.viewDidLoad()
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
     

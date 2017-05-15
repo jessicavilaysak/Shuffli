@@ -8,25 +8,25 @@
 
 import UIKit
 
-class ViewControllerPost: UIViewController, UITextViewDelegate {
+class VC_PostContent: UIViewController, UITextViewDelegate {
 
     @IBOutlet var fld_caption: UITextView!
     @IBOutlet var fld_photo: UIImageView!
     
     var count = 1
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    /*func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
             return false
         }
         return true
-    }
+    }*/
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fld_caption.delegate = self
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         
         

@@ -1,5 +1,5 @@
 //
-//  ViewControllerPayment.swift
+//  ViewControllerConfirmPword.swift
 //  Test
 //
 //  Created by Jessica Vilaysak on 11/5/17.
@@ -8,23 +8,15 @@
 
 import UIKit
 
-class ViewControllerPayment: UIViewController, UITextFieldDelegate {
+class VC_Creator_ConfirmPword: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet var fldcvv: UITextField!
-    @IBOutlet var fldnum: UITextField!
-    @IBOutlet var fldname: UITextField!
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-    
+    @IBOutlet var fld_confirmpword: UITextField!
+    @IBOutlet var fld_newpword: UITextField!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.fldcvv.delegate = self;
-        self.fldnum.delegate = self;
-        self.fldname.delegate = self;
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerViewpostsCreator: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var viewposts: UITableView!
 
@@ -21,8 +21,11 @@ class ViewControllerViewpostsCreator: UIViewController, UITableViewDataSource, U
         super.viewDidLoad()
         fldusername.text = "CreatorMan01"
         fldcompany.text = "Cotton On (Eastland)"
+        self.hideKeyboardWhenTappedAround()
+  
         // Do any additional setup after loading the view.
     }
+
     
     override func viewDidAppear(_ animated: Bool) {
         viewposts.reloadData()

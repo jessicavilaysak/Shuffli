@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerHomePage: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class VC_ACreator_HomePage: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var fldusername: UILabel!
     
@@ -41,6 +41,7 @@ class ViewControllerHomePage: UIViewController, UICollectionViewDataSource, UICo
         }
         super.viewDidLoad()
         viewusers.reloadData()
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view
     }
     

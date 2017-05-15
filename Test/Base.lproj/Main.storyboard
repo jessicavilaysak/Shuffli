@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller Payment-->
+        <!--Creator Payment-->
         <scene sceneID="T34-2Q-1ja">
             <objects>
-                <viewController id="esT-89-DSM" customClass="ViewControllerPayment" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="esT-89-DSM" customClass="VC_ACreator_Payment" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o4w-Qk-Tlr"/>
                         <viewControllerLayoutGuide type="bottom" id="w4m-aL-dS9"/>
@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="650.39999999999998" y="618.44077961019491"/>
         </scene>
-        <!--View Controller Viewposts Creator-->
+        <!--Creator Viewposts-->
         <scene sceneID="u3r-ZO-R2G">
             <objects>
-                <viewController id="fMx-XP-RnA" customClass="ViewControllerViewpostsCreator" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fMx-XP-RnA" customClass="VC_Creator_Viewposts" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qb7-Q2-smw"/>
                         <viewControllerLayoutGuide type="bottom" id="Q0n-Zu-jqV"/>
@@ -203,10 +203,10 @@
             </objects>
             <point key="canvasLocation" x="-1347" y="940"/>
         </scene>
-        <!--View Controller Confirm Pword-->
+        <!--Creator Confirm Pword-->
         <scene sceneID="LT0-VM-vp7">
             <objects>
-                <viewController id="MKn-lh-6zB" customClass="ViewControllerConfirmPword" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MKn-lh-6zB" customClass="VC_Creator_ConfirmPword" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="znS-GV-zHO"/>
                         <viewControllerLayoutGuide type="bottom" id="zyx-oj-FN2"/>
@@ -259,10 +259,10 @@
             </objects>
             <point key="canvasLocation" x="-1348" y="-543"/>
         </scene>
-        <!--View Controller Home Page Creator-->
+        <!--Creator Signin-->
         <scene sceneID="dzB-T8-ax0">
             <objects>
-                <viewController id="j61-WA-o60" customClass="ViewControllerHomePageCreator" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="j61-WA-o60" customClass="VC_Creator_Signin" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M9V-Dn-Avg"/>
                         <viewControllerLayoutGuide type="bottom" id="B4I-ep-BIz"/>
@@ -356,10 +356,10 @@
             </objects>
             <point key="canvasLocation" x="273" y="-1037"/>
         </scene>
-        <!--View Controller Home2-->
+        <!--Creator Signin-->
         <scene sceneID="KMX-Sj-FUg">
             <objects>
-                <viewController id="35m-cm-TIy" customClass="ViewControllerHome2" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="35m-cm-TIy" customClass="VC_ACreator_Signin" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YRc-9a-fh5"/>
                         <viewControllerLayoutGuide type="bottom" id="h2n-Us-uML"/>
@@ -428,10 +428,10 @@
             </objects>
             <point key="canvasLocation" x="626" y="-302"/>
         </scene>
-        <!--View Controller Home Page-->
+        <!--Creator Home Page-->
         <scene sceneID="Eel-hu-QnN">
             <objects>
-                <viewController id="YZR-5O-sZO" customClass="ViewControllerHomePage" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YZR-5O-sZO" customClass="VC_ACreator_HomePage" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q3q-sZ-4j4"/>
                         <viewControllerLayoutGuide type="bottom" id="eEz-dX-y1b"/>
@@ -558,10 +558,10 @@
             </objects>
             <point key="canvasLocation" x="3029.5999999999999" y="1150.9745127436283"/>
         </scene>
-        <!--View Controller Post-->
+        <!--Post Content-->
         <scene sceneID="KHJ-7Z-xlU">
             <objects>
-                <viewController id="7vc-fS-ipB" customClass="ViewControllerPost" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7vc-fS-ipB" customClass="VC_PostContent" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A5V-nT-sEp"/>
                         <viewControllerLayoutGuide type="bottom" id="lu0-vW-o3p"/>
@@ -651,10 +651,10 @@
             </objects>
             <point key="canvasLocation" x="2068" y="1536"/>
         </scene>
-        <!--View Controller Viewposts-->
+        <!--Creator Viewposts-->
         <scene sceneID="66J-DU-c76">
             <objects>
-                <viewController id="Ubl-x1-LfM" customClass="ViewControllerViewposts" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ubl-x1-LfM" customClass="VC_ACreator_Viewposts" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t2G-UC-cEx"/>
                         <viewControllerLayoutGuide type="bottom" id="cGc-rz-PrJ"/>
@@ -737,10 +737,10 @@
             </objects>
             <point key="canvasLocation" x="964" y="2096"/>
         </scene>
-        <!--View Controller Generate-->
+        <!--Creator adduser-->
         <scene sceneID="SBD-qZ-qM5">
             <objects>
-                <viewController id="vc4-CT-9w7" customClass="ViewControllerGenerate" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vc4-CT-9w7" customClass="VC_ACreator_adduser" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jua-mP-Ten"/>
                         <viewControllerLayoutGuide type="bottom" id="iGq-EX-W0h"/>
