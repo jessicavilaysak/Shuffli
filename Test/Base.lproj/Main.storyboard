@@ -1014,19 +1014,11 @@
         <image name="whiteBg" width="375" height="389"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
-        <segue reference="FqH-Ja-7pK"/>
-        <segue reference="fv0-mK-krs"/>
-        <segue reference="UrB-Lp-U9m"/>
-        <segue reference="ZOy-Oc-lGr"/>
-        <segue reference="h3e-MI-oEy"/>
-=======
         <segue reference="Gya-J6-JkK"/>
         <segue reference="h3e-MI-oEy"/>
         <segue reference="LBI-9A-Jjm"/>
         <segue reference="ZOy-Oc-lGr"/>
         <segue reference="gqh-qb-sEj"/>
->>>>>>> origin/master
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
