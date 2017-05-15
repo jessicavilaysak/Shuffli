@@ -19,11 +19,12 @@ class Datasource {
      ]
     //var postsobj : [(image: UIImage, caption: String)] = []
     var tempPosts : [String] = ["1", "2", "3", "4"]
+    var postNotifications: Int!;
 
     init() {
         self.name = "TESTName"
         currentCount = 3
-        
+        postNotifications = 0;
     }
     
   

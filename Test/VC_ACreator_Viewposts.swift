@@ -78,10 +78,18 @@ class VC_ACreator_Viewposts: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         viewposts.reloadData()
+        
+        
+        let tabItems = self.tabBarController?.tabBar.items;
+        let tabItem = tabItems?[3]
+        dataSource.postNotifications = 0;
+        tabItem?.badgeValue = nil
     }
 
     override func didReceiveMemoryWarning() {

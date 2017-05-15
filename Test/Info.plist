@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Will you allow &apos;Shuffli&apos; to access your camera?</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Will you allow &apos;Shuffli&apos; to access your photo library?</string>
 </dict>
 </plist>

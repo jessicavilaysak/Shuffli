@@ -8,11 +8,11 @@
 
 import UIKit
 
-class VC_PostContent: UIViewController, UITextViewDelegate {
+class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet var fld_placeholder: UILabel!
     @IBOutlet var fld_caption: UITextView!
     @IBOutlet var fld_photo: UIImageView!
+    let myPickerController = UIImagePickerController()
     
     var count = 1
 
@@ -26,6 +26,12 @@ class VC_PostContent: UIViewController, UITextViewDelegate {
         fld_caption.textColor = UIColor.lightGray
         // Do any additional setup after loading the view.
         
+        let singletap = UITapGestureRecognizer(target: self, action: #selector(buttonSelectImage))
+        singletap.numberOfTapsRequired = 1 // you can change this value
+        fld_photo.isUserInteractionEnabled = true
+        fld_photo.addGestureRecognizer(singletap)
+        
+        myPickerController.delegate = self;
         
     }
     
@@ -43,14 +49,91 @@ class VC_PostContent: UIViewController, UITextViewDelegate {
         }
     }
     
+    func camera()
+    {
+        //myPickerController.delegate = self;
+        myPickerController.sourceType = UIImagePickerControllerSourceType.camera
+        
+        self.present(myPickerController, animated: true, completion: nil)
+        
+    }
+    
+    func photoLibrary()
+    {
+        
+        //myPickerController.delegate = self;
+        myPickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        self.present(myPickerController, animated: true, completion: nil)
+        
+    }
+    
     @IBAction func buttonPost(_ sender: Any) {
+        
+        
         let caption = fld_caption.text
         let image = fld_photo.image
-        dataSource.postsobj.append((image: image!, caption: caption!))
         
-        fld_photo.image = #imageLiteral(resourceName: "whiteBg")
-        fld_caption.text = ""
+        if(image == UIImage(named: "ImagePlaceholder"))
+        {
+            let refreshAlert = UIAlertController(title: "NOTICE", message: "Please select an image to post!", preferredStyle: UIAlertControllerStyle.alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                
+            }))
+            present(refreshAlert, animated: true, completion: nil)
+            return;
+        }
+        if(caption == "Insert caption...")
+        {
+            let refreshAlert = UIAlertController(title: "NOTICE", message: "Are you sure you wish to post this image without a caption?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
+                self.postImage(img: image!, caption: "");
+
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in
+            }))
+            present(refreshAlert, animated: true, completion: nil)
+            return;
+        }
         
+        
+        postImage(img: image!, caption: caption!)
+    }
+    
+    func postImage(img: UIImage, caption: String) {
+        
+        dataSource.postsobj.append((image: img, caption: caption))
+        
+        self.fld_photo.image = #imageLiteral(resourceName: "ImagePlaceholder")
+        self.fld_caption.text = "Insert caption..."
+        self.fld_caption.textColor = UIColor.lightGray
+        
+        
+        let tabItems = self.tabBarController?.tabBar.items;
+        if((tabItems?.count)! > 2)
+        {
+            let tabItem = tabItems?[3]
+            dataSource.postNotifications = dataSource.postNotifications + 1;
+            tabItem?.badgeValue = String(dataSource.postNotifications)
+        }
+        else
+        {
+            let tabItem = tabItems?[0]
+            dataSource.postNotifications = dataSource.postNotifications + 1;
+            tabItem?.badgeValue = String(dataSource.postNotifications)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        fld_photo.image = selectedImage
+        
+        // Dismiss the picker.
+        dismiss(animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,9 +141,29 @@ class VC_PostContent: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    
     @IBAction func buttonSelectImage(_ sender: Any) {
 
-        fld_photo.image = UIImage(named: String(count))
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: UIAlertActionStyle.default, handler: { (alert:UIAlertAction!) -> Void in
+            self.camera()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Gallery", style: UIAlertActionStyle.default, handler: { (alert:UIAlertAction!) -> Void in
+            self.photoLibrary()
+        }))
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        self.present(actionSheet, animated: true, completion: nil)
+        
+
+        
+       /* fld_photo.image = UIImage(named: String(count))
         if(count < 4)
         {
             count = count + 1
@@ -68,7 +171,7 @@ class VC_PostContent: UIViewController, UITextViewDelegate {
         else
         {
             count = 1
-        }
+        }*/
         
     }
 

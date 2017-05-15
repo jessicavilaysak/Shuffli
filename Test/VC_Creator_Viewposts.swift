@@ -29,6 +29,11 @@ class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidAppear(_ animated: Bool) {
         viewposts.reloadData()
+        
+        let tabItems = self.tabBarController?.tabBar.items;
+        let tabItem = tabItems?[0]
+        dataSource.postNotifications = 0;
+        tabItem?.badgeValue = nil
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,11 +47,8 @@ class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.viewposts.dequeueReusableCell(withIdentifier: "cellCreator", for: indexPath as IndexPath) as! CustomCellCreator
-        //cell.photo.image = imageArray[indexPath.row]
-        print("count: "+String(dataSource.postsobj.count))
         if indexPath.row < dataSource.postsobj.count
         {
-            print("row: "+String(indexPath.row))
             let temp = dataSource.postsobj[indexPath.row]
             cell.photo.image = temp.image
             cell.fld_caption.text = temp.caption
