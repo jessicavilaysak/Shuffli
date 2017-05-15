@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4406FE1EC9F62A00CC98F1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4406FD1EC9F62A00CC98F1 /* Extensions.swift */; };
+		1C4407001EC9FA7F00CC98F1 /* Toucan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4406FF1EC9FA7F00CC98F1 /* Toucan.swift */; };
 		22049DBC1EC3FE66001A2FF7 /* VC_Creator_ConfirmPword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049DBB1EC3FE66001A2FF7 /* VC_Creator_ConfirmPword.swift */; };
 		22049DBE1EC4042E001A2FF7 /* VC_ACreator_Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049DBD1EC4042E001A2FF7 /* VC_ACreator_Payment.swift */; };
 		224894D81EC38D2400162B80 /* VC_PostContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224894D71EC38D2400162B80 /* VC_PostContent.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C4406FD1EC9F62A00CC98F1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1C4406FF1EC9FA7F00CC98F1 /* Toucan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Toucan.swift; path = ../Pods/Toucan/Source/Toucan.swift; sourceTree = "<group>"; };
 		22049DBB1EC3FE66001A2FF7 /* VC_Creator_ConfirmPword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC_Creator_ConfirmPword.swift; sourceTree = "<group>"; };
 		22049DBD1EC4042E001A2FF7 /* VC_ACreator_Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC_ACreator_Payment.swift; sourceTree = "<group>"; };
 		224894D71EC38D2400162B80 /* VC_PostContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC_PostContent.swift; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 				2285D6E21EC3F5BA00211D41 /* VC_Creator_Viewposts.swift */,
 				224894D71EC38D2400162B80 /* VC_PostContent.swift */,
 				617CEC1F1E8CE0D600047578 /* ViewController.swift */,
+				1C4406FD1EC9F62A00CC98F1 /* Extensions.swift */,
+				1C4406FF1EC9FA7F00CC98F1 /* Toucan.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -360,7 +366,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		11402B0F23922054F7C73259 /* [CP] Copy Pods Resources */ = {
@@ -390,7 +396,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		46457C5F37739A6F271D265E /* [CP] Embed Pods Frameworks */ = {
@@ -480,7 +486,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -491,6 +497,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22E497981EC3142400B419E9 /* Datasource.swift in Sources */,
+				1C4407001EC9FA7F00CC98F1 /* Toucan.swift in Sources */,
 				22C1DF2B1EC32DE40022DC01 /* CustomCellUser.swift in Sources */,
 				2253B2941EC1276600D4545D /* VC_ACreator_adduser.swift in Sources */,
 				22049DBE1EC4042E001A2FF7 /* VC_ACreator_Payment.swift in Sources */,
@@ -501,6 +508,7 @@
 				22C1DF271EC32A1C0022DC01 /* VC_ACreator_HomePage.swift in Sources */,
 				22E4979E1EC31B0300B419E9 /* VC_ACreator_Signin.swift in Sources */,
 				617CEC1E1E8CE0D600047578 /* AppDelegate.swift in Sources */,
+				1C4406FE1EC9F62A00CC98F1 /* Extensions.swift in Sources */,
 				2285D6E51EC3F61F00211D41 /* CustomCellCreator.swift in Sources */,
 				224894D81EC38D2400162B80 /* VC_PostContent.swift in Sources */,
 				2285D6E91EC3FCB100211D41 /* VC_Creator_Signin.swift in Sources */,

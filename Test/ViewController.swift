@@ -64,7 +64,7 @@ class ViewController: UIViewController {
             FIRAuth.auth()?.signIn(withEmail: email, password: pass, completion: { (user, error) in
                 
                 
-                if let u = user {
+                if user != nil {
                     self.performSegue(withIdentifier: "goToHome", sender: self)
                 }
                 else {
@@ -84,7 +84,7 @@ class ViewController: UIViewController {
                     print("sent email - pranav is gay")
                 })
                 
-                if let u = user{
+                if user != nil{
                     
                     self.performSegue(withIdentifier: "goToHome", sender: self)
                     
