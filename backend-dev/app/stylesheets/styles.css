@@ -219,6 +219,10 @@ p.postExpiry {
 	margin-right: 0px;
 }
 
+p.errorMsg {
+    color: #f17415;
+}
+
 #searchBox {
 	border: 0px solid;
 	background-color: transparent;

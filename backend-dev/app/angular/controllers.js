@@ -1,8 +1,12 @@
 /*global angular*/
 var shuffliApp = angular.module("shuffli", ['ngRoute', 'ui.bootstrap', 'ngStorage']);
 
-shuffliApp.controller('mainController', function ($scope, $location) {
-
+shuffliApp.controller('mainController', function ($scope, $location, $sessionStorage) {
+    
+    $scope.logout = function () {
+        $sessionStorage.$reset();
+        $location.path('/');
+    }
 
 	$scope.showNavbar = function () {
 		var path = $location.path();
@@ -12,6 +16,15 @@ shuffliApp.controller('mainController', function ($scope, $location) {
 		}
 		return true;
 	};
+
+	$scope.showFilterBar = function () {
+		var path = $location.path();
+
+		if (path == '/dashboard' || path == '/archived') {
+			return true;
+		}
+		return false;
+	}
 });
 
 shuffliApp.controller('paymentSetupController', function ($scope, $location) {
@@ -23,8 +36,27 @@ shuffliApp.controller('paymentSetupController', function ($scope, $location) {
 	}
 });
 
-shuffliApp.controller('setupController', function ($scope, $location) {
-	$scope.categories = [];
+shuffliApp.controller('accountsController', function ($scope, $location) {
+	$scope.facebookAccounts = ['Foodland Main', 'Foodland Fashion', 'Foodland Food'];
+    $scope.pinterestAccounts = ['Foodland Main', 'Foodland Fashion', 'Foodland Food'];
+});
+
+shuffliApp.controller('setupController', function ($scope, $location, $sessionStorage) {
+	$scope.$storage = $sessionStorage;
+
+	if (typeof $scope.$storage.categories == 'undefined') {
+		$scope.$storage.categories = [];
+	}
+
+	$scope.categories = $scope.$storage.categories;
+    $scope.predefinedCategories = ['Food', 'Travel', 'Media', 'Fashion'];
+
+	if (typeof $scope.$storage.companyName == 'undefined') {
+		$scope.$storage.companyName = "";
+	}
+
+	$scope.companyName = $scope.$storage.companyName;
+
 	$scope.creators = [];
 	$scope.creatorEntry = [{}];
 
@@ -42,12 +74,29 @@ shuffliApp.controller('setupController', function ($scope, $location) {
 	$scope.removeCreator = function (creator) {
 		$scope.creators.splice($scope.creators.indexOf(creator), 1);
 	}
+    
+    $scope.addCategoryTextBoxEdited = function () {
+        $scope.addCategoryErrorMsg = "";
+    }
 
 	$scope.addCategory = function (category) {
-		$scope.categories.push(category);
-
-		//clear the category field
-		$scope.categoryEntry = '';
+        //convert to lowercase
+        var newCategory = category.toLowerCase();
+        //set first character to uppercase
+        newCategory = newCategory.charAt(0).toUpperCase() + newCategory.slice(1);
+        
+        if ($scope.categories.indexOf(newCategory) != -1) {
+            $scope.addCategoryErrorMsg = "Category has already been added!";
+        } else {
+            if (!newCategory.length) {
+                $scope.addCategoryErrorMsg = "Category cannot be empty!";
+            } else {
+                $scope.addCategoryErrorMsg = "";
+                //clear the category field
+                $scope.categoryEntry = '';
+                $scope.categories.push(newCategory);
+            }
+        }
 	}
 
 	$scope.removeCategory = function (category) {
@@ -108,6 +157,7 @@ shuffliApp.controller('archiveController', function ($scope, $location, $session
 				"creator": "Marketing",
 				"daysLeft": 45,
 				"creatorName": "Anonymous",
+				"category": "Media",
 				"creatorImageURL": "marketing.png",
 				"description": "Luxury apartment suites at the Maxtra Hotel",
 				"imageURL": "images/posts/8.jpg"
@@ -117,6 +167,7 @@ shuffliApp.controller('archiveController', function ($scope, $location, $session
 				"creator": "Coffee Club",
 				"daysLeft": 12,
 				"creatorName": "Alice Gregory",
+				"category": "Food",
 				"creatorImageURL": "coffeeclub.jpg",
 				"description": "New beans with exquisite flavours have arrived!",
 				"imageURL": "images/posts/5.jpg"
@@ -126,6 +177,7 @@ shuffliApp.controller('archiveController', function ($scope, $location, $session
 				"creator": "Flight Centre",
 				"daysLeft": 22,
 				"creatorName": "Fred Flowerpot",
+				"category": "Travel",
 				"creatorImageURL": "flightcentre.jpg",
 				"description": "Cheap flights to and from Hong Kong for a limited time.",
 				"imageURL": "images/posts/6.jpg"
@@ -135,6 +187,7 @@ shuffliApp.controller('archiveController', function ($scope, $location, $session
 				"creator": "Bag Shop",
 				"daysLeft": 32,
 				"creatorName": "Jayden Wood",
+				"category": "Fashion",
 				"creatorImageURL": "bagshop.jpg",
 				"description": "New woman shoulder bags now available!",
 				"imageURL": "images/posts/7.jpg"
@@ -178,6 +231,51 @@ shuffliApp.controller('dashboardController', function ($scope, $uibModal, $log, 
 
 	console.log($scope.$storage.posts);
 
+	if (typeof $scope.$storage.archivedPosts == 'undefined') {
+		$scope.$storage.archivedPosts = [
+			{
+				"id": "000008",
+				"creator": "Marketing",
+				"daysLeft": 45,
+				"creatorName": "Anonymous",
+				"category": "Media",
+				"creatorImageURL": "marketing.png",
+				"description": "Luxury apartment suites at the Maxtra Hotel",
+				"imageURL": "images/posts/8.jpg"
+		},
+			{
+				"id": "000005",
+				"creator": "Coffee Club",
+				"daysLeft": 12,
+				"creatorName": "Alice Gregory",
+				"category": "Food",
+				"creatorImageURL": "coffeeclub.jpg",
+				"description": "New beans with exquisite flavours have arrived!",
+				"imageURL": "images/posts/5.jpg"
+		},
+			{
+				"id": "000006",
+				"creator": "Flight Centre",
+				"daysLeft": 22,
+				"creatorName": "Fred Flowerpot",
+				"category": "Travel",
+				"creatorImageURL": "flightcentre.jpg",
+				"description": "Cheap flights to and from Hong Kong for a limited time.",
+				"imageURL": "images/posts/6.jpg"
+		},
+			{
+				"id": "000007",
+				"creator": "Bag Shop",
+				"daysLeft": 32,
+				"creatorName": "Jayden Wood",
+				"category": "Fashion",
+				"creatorImageURL": "bagshop.jpg",
+				"description": "New woman shoulder bags now available!",
+				"imageURL": "images/posts/7.jpg"
+		}
+	];
+	}
+
 	//set default posts if new session
 	if (typeof $scope.$storage.posts == 'undefined') {
 		$scope.$storage.posts = [
@@ -185,6 +283,7 @@ shuffliApp.controller('dashboardController', function ($scope, $uibModal, $log, 
 				"id": "000001",
 				"creator": "Marketing",
 				"creatorName": "Anonymous",
+				"category": "Media",
 				"creatorImageURL": "marketing.png",
 				"description": "Social media is evolving like never before",
 				"imageURL": "images/posts/1.jpg"
@@ -193,6 +292,7 @@ shuffliApp.controller('dashboardController', function ($scope, $uibModal, $log, 
 				"id": "000002",
 				"creator": "Coffee Club",
 				"creatorName": "John Doe",
+				"category": "Food",
 				"creatorImageURL": "coffeeclub.jpg",
 				"description": "Have you tried the worlds greatest coffee?",
 				"imageURL": "images/posts/2.jpg"
@@ -201,6 +301,7 @@ shuffliApp.controller('dashboardController', function ($scope, $uibModal, $log, 
 				"id": "000003",
 				"creator": "Flight Centre",
 				"creatorName": "Bob Howe",
+				"category": "Travel",
 				"creatorImageURL": "flightcentre.jpg",
 				"description": "Get away from reality with Flight Centre.",
 				"imageURL": "images/posts/3.jpg"
@@ -209,6 +310,7 @@ shuffliApp.controller('dashboardController', function ($scope, $uibModal, $log, 
 				"id": "000004",
 				"creator": "Bag Shop",
 				"creatorName": "Jane Doe",
+				"category": "Fashion",
 				"creatorImageURL": "bagshop.jpg",
 				"description": "Check out our new bag range that have just arrived!",
 				"imageURL": "images/posts/4.jpg"
@@ -223,15 +325,15 @@ shuffliApp.controller('dashboardController', function ($scope, $uibModal, $log, 
 	$scope.postToApprove = null;
 
 	$scope.facebookPages = [
-		"Eastland Main",
-		"Eastland Fashion",
-		"Eastland Food"
+		"Foodland Main",
+		"Foodland Fashion",
+		"Foodland Food"
 	];
 
 	$scope.pinterestBoards = [
-		"Eastland Main",
-		"Eastland Fashion",
-		"Eastland Food"
+		"Foodland Main",
+		"Foodland Fashion",
+		"Foodland Food"
 	];
 
 	$scope.approvePostButton = function (postData) {

@@ -18,6 +18,14 @@ shuffliApp.config(function ($routeProvider, $locationProvider) {
 			templateUrl: 'views/loginView.html',
 			controller: 'loginController'
 		})
+		.when('/accounts', {
+			templateUrl: 'views/accountsView.html',
+			controller: 'accountsController'
+		})
+		.when('/settings', {
+			templateUrl: 'views/settingsView.html',
+			controller: 'setupController'
+		})
 		.when('/accountsetup', {
 			templateUrl: 'views/setupView.html',
 			controller: 'setupController'

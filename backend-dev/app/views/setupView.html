@@ -15,7 +15,7 @@
 		<div class="col-md-8">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-briefcase fa-fw"></i></span>
-				<input class="form-control" type="text" placeholder="Name">
+				<input class="form-control" type="text" ng-model="$storage.companyName" placeholder="Name" value="{{$storage.companyName}}">
 			</div>
 		</div>
 	</div>
@@ -27,20 +27,37 @@
 			<label for="companyName" class="pull-right formLabel">Categories:</label>
 		</div>
 		<div class="col-md-8">
+            <div class="input-group">
+                <div class="row">
+                    <div class="col-xs-4"><label for="predefinedC">Select Category:</label></div>
+                    <div class="col-xs-4">
+                        <select ng-model="predefinedCategory" class="form-control" id="predefinedC">
+                        <option ng-repeat="category in predefinedCategories" value="{{category}}">{{category}}</option>
+                </select>
+                    </div>
+                    <div class="col-xs-4">
+                        <button class = "btn btn-success" type = "button" ng-click="addCategory(predefinedCategory)">
+                     <i class="fa fa-plus" aria-hidden="true"></i> Category
+                    </button>
+                    </div>
+                </div>
+                
+                    
+            </div>
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-sitemap fa-fw"></i></span>
-				<input class="form-control" type="text" placeholder="Category" ng-model="categoryEntry">
+				<input class="form-control" type="text" placeholder="Custom Category" ng-keyup="$event.keyCode == 13 && addCategory(categoryEntry)" ng-model="categoryEntry" ng-change="addCategoryTextBoxEdited()">
 				<span class="input-group-btn">
                   <button class = "btn btn-success" type = "button" ng-click="addCategory(categoryEntry)">
-                     <i class="fa fa-plus" aria-hidden="true"></i>
+                     <i class="fa fa-plus" aria-hidden="true"></i> Custom Category
                   </button>
                </span>
-			</div><br />
+			</div>
+            <p class="errorMsg">{{addCategoryErrorMsg}}</p>
 			<div class="list-group">
 				<a class="list-group-item clearfix" ng-repeat="category in categories"><i class="fa fa-tags fa-fw" aria-hidden="true"></i>&nbsp; {{category}}<span class="pull-right">
       <button class="btn btn-xs btn-danger" ng-click="removeCategory(category)"><i class="fa fa-minus" aria-hidden="true"></i></button></span>
-      </button>
-    </span></a>
+    </a>
 			</div>
 		</div>
 	</div>

@@ -5,12 +5,22 @@
 		<h2 class="mainContentHeader">Archived Posts</h2>
 		<p class="mainContentSubtitle">View and manage posts archived from the dashboard, posts will stay archived for 90 days</p>
 	</div>
+    <div class="row row-centered">
+            <div class="col-xs-12 col-centered">
+                <span>Filter Category: </span>
+        <select ng-model="search.category">
+            <option value=""></option>
+    <option ng-repeat="category in $storage.categories" value="{{category}}">{{category}}</option>
+</select>
+            </div>
+            
+        </div>
 	<div class="col-xs-12">
 		<hr />
 	</div>
 </div>
 <div class="row">
-	<div data-ng-repeat="post in $storage.archivedPosts | orderBy:'daysLeft'" ">
+	<div data-ng-repeat="post in $storage.archivedPosts | orderBy:'daysLeft' | filter:search">
 		<div ng-include=" 'views/thumbs/archivedThumb.html' "></div>
 	</div>
 </div>

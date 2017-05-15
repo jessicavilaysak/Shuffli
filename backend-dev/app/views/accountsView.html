@@ -1,0 +1,50 @@
+<div class="row">
+	<div class="col-xs-12">
+        <div class="row">
+            <h2 class="mainContentHeader">Accounts</h2>
+		<p class="mainContentSubtitle">Manage connections to social media accounts</p>
+        </div>
+	</div>
+	<div class="col-xs-12">
+		<hr />
+	</div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <p class="mainContentSubtitle">Facebook Accounts</p>
+    </div>
+    <div class="col-xs-6" ng-repeat="account in facebookAccounts">
+        <div class="postCreatorDetails">
+			<div class="row postCreatorRow">
+				<div class="col-xs-3 postCreatorImage">
+					<div class="user pull-right" style="background-image:url('images/fblogo.png')">
+					</div>
+				</div>
+				<div class="col-xs-7 postCreator">
+					<p class="postCreatorName">{{account}}</p>
+					<p>Connected</p>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-xs-12">
+        <p class="mainContentSubtitle">Pinterest Accounts</p>
+    </div>
+    <div class="col-xs-6" ng-repeat="account in pinterestAccounts">
+        <div class="postCreatorDetails">
+			<div class="row postCreatorRow">
+				<div class="col-xs-3 postCreatorImage">
+					<div class="user pull-right" style="background-image:url('images/pinterestlogo.jpg')">
+					</div>
+				</div>
+				<div class="col-xs-7 postCreator">
+					<p class="postCreatorName">{{account}}</p>
+					<p>Connected</p>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>

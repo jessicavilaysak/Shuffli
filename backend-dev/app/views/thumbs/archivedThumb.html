@@ -2,11 +2,12 @@
 	<div class="postBox">
 		<img data-ng-src="{{post.imageURL}}" class="postImage" />
 		<div>
+
 			<p class="postExpiry"><i class="fa fa-times" aria-hidden="true"></i> Expires in {{post.daysLeft}} days</p>
 		</div>
 		<hr />
 		<p class="postDesc">
-			{{post.description}}
+			{{post.description}} <br /><br /><span class="label label-primary">{{post.category}}</span>
 		</p>
 		<hr />
 		<div class="postCreatorDetails">
@@ -20,7 +21,7 @@
 					<p>{{post.creator}}</p>
 				</div>
 			</div>
-		</div>
+        </div>
 		<hr />
 		<div class="row postOptions">
 			<div class="col-xs-12 postUndo" data-ng-click="unarchivePostButton(post)">

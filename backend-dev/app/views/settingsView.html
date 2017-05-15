@@ -1,0 +1,49 @@
+<div class="row">
+	<div class="col-xs-12">
+		<h2 class="mainContentHeader">Account Settings</h2>
+	</div>
+	<div class="col-xs-12">
+		<hr />
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+			<label for="companyName" class="pull-right formLabel">Company Name:</label>
+		</div>
+		<div class="col-md-8">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-briefcase fa-fw"></i></span>
+				<input class="form-control" type="text" ng-model="$storage.companyName" placeholder="Name" value="{{$storage.companyName}}">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<hr />
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<label for="companyName" class="pull-right formLabel">Categories:</label>
+		</div>
+		<div class="col-md-8">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-sitemap fa-fw"></i></span>
+				<input class="form-control" type="text" placeholder="Category" ng-model="categoryEntry">
+				<span class="input-group-btn">
+                  <button class = "btn btn-success" type = "button" ng-click="addCategory(categoryEntry)">
+                     <i class="fa fa-plus" aria-hidden="true"></i>
+                  </button>
+               </span>
+			</div><br />
+			<div class="list-group">
+				<a class="list-group-item clearfix" ng-repeat="category in categories"><i class="fa fa-tags fa-fw" aria-hidden="true"></i>&nbsp; {{category}}<span class="pull-right">
+      <button class="btn btn-xs btn-danger" ng-click="removeCategory(category)"><i class="fa fa-minus" aria-hidden="true"></i></button></span>
+      </button>
+    </span></a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<hr />
+	</div>
+</div>

@@ -2,15 +2,28 @@
 </div>
 <div class="row">
 	<div class="col-xs-12">
-		<h2 class="mainContentHeader">Dashboard</h2>
+        <div class="row">
+            <h2 class="mainContentHeader">Dashboard</h2>
 		<p class="mainContentSubtitle">View and manage posts sent in by your content creators</p>
+        </div>
+        <div class="row row-centered">
+            <div class="col-xs-12 col-centered">
+                <span>Filter Category: </span>
+        <select ng-model="search.category">
+            <option value=""></option>
+    <option ng-repeat="category in $storage.categories" value="{{category}}">{{category}}</option>
+</select>
+            </div>
+            
+        </div>
+        
 	</div>
 	<div class="col-xs-12">
 		<hr />
 	</div>
 </div>
 <div class="row">
-	<div data-ng-repeat="post in $storage.posts  | orderBy:'-id'" ">
+	<div data-ng-repeat="post in $storage.posts  | orderBy:'-id' | filter:search">
 		<div ng-include=" 'views/thumbs/dashboardThumb.html' "></div>
 	</div>
 </div>
