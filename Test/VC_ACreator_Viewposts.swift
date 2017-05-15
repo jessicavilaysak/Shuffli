@@ -13,7 +13,7 @@ class VC_ACreator_Viewposts: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet var viewposts: UITableView!
     
     @IBAction func buttonApprove(sender: UIButton) {
-        let refreshAlert = UIAlertController(title: "SUBMIT TO DASHBOARD", message: "Are you sure you wish to submit this post?", preferredStyle: UIAlertControllerStyle.alert)
+        let refreshAlert = UIAlertController(title: "SUBMIT TO PUBLISHER", message: "Are you sure you wish to submit this post?", preferredStyle: UIAlertControllerStyle.alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
             

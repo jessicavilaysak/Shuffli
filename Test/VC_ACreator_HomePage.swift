@@ -53,6 +53,11 @@ class VC_ACreator_HomePage: UIViewController, UICollectionViewDataSource, UIColl
             fld_nouser.isHidden = true
         }
         viewusers.reloadData()
+        
+        let tabItems = self.tabBarController?.tabBar.items;
+        let tabItem = tabItems?[0]
+        dataSource.userNotifications = 0;
+        tabItem?.badgeValue = nil
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

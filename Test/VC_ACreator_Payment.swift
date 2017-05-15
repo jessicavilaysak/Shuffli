@@ -18,6 +18,8 @@ class VC_ACreator_Payment: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        dataSource.acceptedPayment = true;
+        print("***Payment screen***");
         // Do any additional setup after loading the view.
     }
 

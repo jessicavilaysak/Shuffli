@@ -13,6 +13,7 @@ class Datasource {
     var name: String!
     var userArray : [String] = ["temp_user_00", "temp_user_01", "temp_user_02"]
     var currentCount: Int!
+    var userNotifications: Int!;
     var postsobj : [(image: UIImage, caption: String)] = [(image: UIImage(named: "1")!, caption: "What a beautiful day"),
         (image: UIImage(named: "2")!, caption: "What a total uggo"),
         (image: UIImage(named: "3")!, caption: "I love this!!")
@@ -20,11 +21,14 @@ class Datasource {
     //var postsobj : [(image: UIImage, caption: String)] = []
     var tempPosts : [String] = ["1", "2", "3", "4"]
     var postNotifications: Int!;
+    var acceptedPayment: Bool!;
 
     init() {
         self.name = "TESTName"
         currentCount = 3
         postNotifications = 0;
+        acceptedPayment = false;
+        userNotifications = 0;
     }
     
   

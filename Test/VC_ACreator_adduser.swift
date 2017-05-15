@@ -53,6 +53,11 @@ class VC_ACreator_adduser: UIViewController, UITextFieldDelegate {
         }
         fld_password.text = tempString;
         dataSource.currentCount = dataSource.currentCount + 1
+        
+        let tabItems = self.tabBarController?.tabBar.items;
+        let tabItem = tabItems?[0]
+        dataSource.userNotifications = dataSource.userNotifications + 1;
+        tabItem?.badgeValue = String(dataSource.userNotifications)
     }
     
     
