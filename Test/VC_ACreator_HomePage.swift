@@ -20,7 +20,7 @@ class VC_ACreator_HomePage: UIViewController, UICollectionViewDataSource, UIColl
         //delete from data source
         if index == dataSource.userArray.count
         {
-            index = index - 1
+            index -= 1
         }
         dataSource.userArray.remove(at: index);
         

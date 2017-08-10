@@ -29,12 +29,14 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.9)
   - IQKeyboardManagerSwift (4.0.9)
+  - SVProgressHUD (2.1.2)
   - Toucan (0.6.0)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - IQKeyboardManagerSwift
+  - SVProgressHUD
   - Toucan (~> 0.6)
 
 SPEC CHECKSUMS:
@@ -46,8 +48,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   Toucan: 47485bbc9cb4541ef6318d6886103e6eaf16e919
 
-PODFILE CHECKSUM: b1ed137a3b42443e2018360d0efbd8013312dcbe
+PODFILE CHECKSUM: 9ad5b9fb15105ffd29b3f569a264e108695e2c1c
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

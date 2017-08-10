@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+
+
 
 class VC_Creator_Signin: UIViewController, UITextFieldDelegate {
 
@@ -22,6 +25,33 @@ class VC_Creator_Signin: UIViewController, UITextFieldDelegate {
 
     @IBAction func btn_Signin(_ sender: Any) {
         dataSource.username = fld_username.text;
+        if let email = fld_username.text, let pass = fld_password.text
+        {
+            
+                FIRAuth.auth()?.signIn(withEmail: email, password: pass, completion: { (user, error) in
+                    
+                    
+                    if user != nil{
+                        self.performSegue(withIdentifier: "goToHome", sender: self)
+                    
+                    }
+                    else{
+                        print(error!);
+                        let alert = UIAlertController(title: "Login Failed", message: "Enter correct username or password", preferredStyle: UIAlertControllerStyle.alert);
+                        let cancelAction = UIAlertAction(title: "OK",
+                                                         style: .cancel, handler: nil)
+                        alert.addAction(cancelAction)
+
+                        self.present(alert,animated: true){
+                            
+                        }
+                    }
+                    
+                    
+                })
+            
+                
+            }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

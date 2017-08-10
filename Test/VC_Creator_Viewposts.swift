@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -19,7 +20,8 @@ class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        fldusername.text = dataSource.username;
+        fldusername.text = FIRAuth.auth()?.currentUser?.email;
+//dataSource.username;
         fldcompany.text = "Cotton On (Eastland)"
         self.hideKeyboardWhenTappedAround()
   
@@ -58,6 +60,14 @@ class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableView
         
         return cell
     }
+    
+    
+    @IBAction func logout(_ sender: UIButton) {
+       try! FIRAuth.auth()?.signOut()
+        self.performSegue(withIdentifier: "goToSignin", sender: self)
+    }
+    
+    
     
     /*
      // MARK: - Navigation

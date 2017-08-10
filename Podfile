@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
 
 target 'Test' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -9,6 +9,8 @@ target 'Test' do
 pod 'Firebase/Core'
 pod 'Firebase/Auth’
 pod 'IQKeyboardManagerSwift'
+pod 'SVProgressHUD'
+
 pod ‘Toucan’, ‘~> 0.6’
 
   target 'TestTests' do

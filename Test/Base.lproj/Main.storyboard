@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kat-Vb-eXi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kat-Vb-eXi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -174,6 +174,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="logoutButton"/>
                                 <connections>
+                                    <action selector="logout:" destination="fMx-XP-RnA" eventType="touchUpInside" id="weN-g1-uiN"/>
                                     <segue destination="Mrk-7x-BjF" kind="show" id="9Jb-m2-Irb"/>
                                 </connections>
                             </button>
@@ -185,6 +186,7 @@
                         <outlet property="fldcompany" destination="mw9-Ly-uhC" id="l4l-2m-C59"/>
                         <outlet property="fldusername" destination="Zgb-3s-haE" id="IDy-dh-CUq"/>
                         <outlet property="viewposts" destination="Bdu-Vc-OhK" id="v7m-uu-nrA"/>
+                        <segue destination="j61-WA-o60" kind="show" identifier="goToSignin" id="e3N-Zn-Gxe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DKe-3J-LhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -274,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Koh-Nk-7Q9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1348" y="-543.77811094452773"/>
+            <point key="canvasLocation" x="-1577" y="-543"/>
         </scene>
         <!--Creator Signin-->
         <scene sceneID="dzB-T8-ax0">
@@ -322,7 +324,6 @@
                                 </state>
                                 <connections>
                                     <action selector="btn_Signin:" destination="j61-WA-o60" eventType="touchUpInside" id="REq-Qz-e4G"/>
-                                    <segue destination="MKn-lh-6zB" kind="show" id="Wxi-sn-G5n"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -331,6 +332,7 @@
                     <connections>
                         <outlet property="fld_password" destination="OIw-im-9VV" id="e33-kY-Zex"/>
                         <outlet property="fld_username" destination="Tmd-au-1Yp" id="glr-tx-UpG"/>
+                        <segue destination="nwB-hb-X79" kind="show" identifier="goToHome" id="zx4-G8-Flb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBD-HX-yNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1014,11 +1016,11 @@
         <image name="whiteBg" width="375" height="389"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gya-J6-JkK"/>
         <segue reference="h3e-MI-oEy"/>
-        <segue reference="LBI-9A-Jjm"/>
+        <segue reference="zx4-G8-Flb"/>
+        <segue reference="e3N-Zn-Gxe"/>
         <segue reference="ZOy-Oc-lGr"/>
-        <segue reference="gqh-qb-sEj"/>
+        <segue reference="LBI-9A-Jjm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
