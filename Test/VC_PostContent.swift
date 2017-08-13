@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
+import FirebaseAuth
 
 class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var fld_caption: UITextView!
     @IBOutlet var fld_photo: UIImageView!
+    
+    @IBOutlet weak var postBtn: UIButton!
     let myPickerController = UIImagePickerController()
     
     var count = 1
 
-    
+    var ref: FIRDatabaseReference? // create property
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +37,10 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
         fld_photo.addGestureRecognizer(singletap)
         
         myPickerController.delegate = self;
+        
+         ref = FIRDatabase.database().reference() // get reference to actual db
+       postBtn.layer.cornerRadius = 4
+        
         
     }
     
@@ -79,7 +88,6 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
             let refreshAlert = UIAlertController(title: "NOTICE", message: "Please select an image to post!", preferredStyle: UIAlertControllerStyle.alert)
             
             refreshAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-                
             }))
             present(refreshAlert, animated: true, completion: nil)
             return;
@@ -99,7 +107,7 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
             return;
         }
         
-        
+        ref?.child("Caption").childByAutoId().setValue(caption) //post to firebase, but with auto ID need to change that to user id or something
         postImage(img: image!, caption: caption!)
     }
     

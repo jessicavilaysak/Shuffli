@@ -8,19 +8,27 @@
 
 import UIKit
 import FirebaseAuth
-
+import SVProgressHUD
 
 
 class VC_Creator_Signin: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var fld_password: UITextField!
     @IBOutlet var fld_username: UITextField!
-   
+    @IBOutlet weak var SigninBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        SigninBtn.layer.cornerRadius = 4
         // Do any additional setup after loading the view.
+        
+        //text field stylings
+       
+        fld_password.layer.cornerRadius = 4
+        
+        fld_username.layer.cornerRadius = 4
+        
     }
 
     @IBAction func btn_Signin(_ sender: Any) {
@@ -28,7 +36,9 @@ class VC_Creator_Signin: UIViewController, UITextFieldDelegate {
         if let email = fld_username.text, let pass = fld_password.text
         {
             
+                SVProgressHUD.show(withStatus: "Logging In!")
                 FIRAuth.auth()?.signIn(withEmail: email, password: pass, completion: { (user, error) in
+                    SVProgressHUD.dismiss(withDelay: 2);
                     
                     
                     if user != nil{

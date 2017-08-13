@@ -7,9 +7,12 @@ target 'Test' do
 
   # Pods for Test
 pod 'Firebase/Core'
+pod 'Firebase/Storage'
 pod 'Firebase/Auth’
+pod 'Firebase/Database’
 pod 'IQKeyboardManagerSwift'
 pod 'SVProgressHUD'
+pod 'TextFieldEffects'
 
 pod ‘Toucan’, ‘~> 0.6’
 

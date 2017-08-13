@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>96694636240-l7bapd0s3t12r0b9nh60ag3ccbf8n16j.apps.googleusercontent.com</string>
+	<string>96694636240-2d58higtgnedtinbvjkhu1da4tc145ej.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.96694636240-l7bapd0s3t12r0b9nh60ag3ccbf8n16j</string>
+	<string>com.googleusercontent.apps.96694636240-2d58higtgnedtinbvjkhu1da4tc145ej</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBZvEl1_If0IUnl4AvzSXDTV6vabGopEtM</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.kkk.Test</string>
+	<string>com.shuffli.Test1</string>
 	<key>PROJECT_ID</key>
 	<string>logintest-8c373</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:96694636240:ios:1187e5354a87762b</string>
+	<string>1:96694636240:ios:a8879e8efc930d7a</string>
 	<key>DATABASE_URL</key>
 	<string>https://logintest-8c373.firebaseio.com</string>
 </dict>
