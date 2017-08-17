@@ -13,7 +13,7 @@ pod 'Firebase/Database’
 pod 'IQKeyboardManagerSwift'
 pod 'SVProgressHUD'
 pod 'TextFieldEffects'
-
+pod 'SwiftKeychainWrapper'
 pod ‘Toucan’, ‘~> 0.6’
 
   target 'TestTests' do

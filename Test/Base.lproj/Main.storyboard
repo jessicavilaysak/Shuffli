@@ -306,16 +306,17 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="0To-4X-7Lz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <size key="titleShadowOffset" width="1" height="0.0"/>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.98823529409999999" green="0.37647058820000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="btn_Signin:" destination="j61-WA-o60" eventType="touchUpInside" id="REq-Qz-e4G"/>
+                                    <action selector="BtnTapped:" destination="j61-WA-o60" eventType="touchUpInside" id="HmN-75-VW6"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="OlE-fC-r85">
-                                <rect key="frame" x="21" y="333" width="374" height="117"/>
+                                <rect key="frame" x="20.666666666666657" y="333.33333333333331" width="374" height="117"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mEr-Y6-df4" customClass="HoshiTextField" customModule="TextFieldEffects">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -674,18 +675,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whiteBg" translatesAutoresizingMaskIntoConstraints="NO" id="lC1-9F-x9G">
-                                <rect key="frame" x="0.0" y="20" width="414" height="389"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="QQP-KM-2C3">
+                                <rect key="frame" x="0.0" y="20" width="414" height="363"/>
                             </imageView>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="QQP-KM-2C3">
-                                <rect key="frame" x="0.0" y="20" width="414" height="389"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0w-SG-1kg">
-                                <rect key="frame" x="95" y="539" width="225" height="47"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0w-SG-1kg">
+                                <rect key="frame" x="75" y="553" width="263" height="48"/>
                                 <color key="backgroundColor" red="0.98823529409999999" green="0.37647058820000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="j5q-EG-SlO"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="POST">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -694,28 +692,42 @@
                                     <action selector="buttonPost:" destination="7vc-fS-ipB" eventType="touchUpInside" id="4g5-2Y-xE5"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25P-Hi-X3e">
-                                <rect key="frame" x="0.0" y="436" width="414" height="61"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25P-Hi-X3e">
+                                <rect key="frame" x="20" y="446" width="374" height="61"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" label="Enter Caption..."/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="93G-f4-TNo"/>
+                                </constraints>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.85098039219999999" green="0.84313725490000002" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="25P-Hi-X3e" firstAttribute="leading" secondItem="0aH-Pw-arG" secondAttribute="leadingMargin" id="31o-lK-8kO"/>
+                            <constraint firstItem="lu0-vW-o3p" firstAttribute="top" secondItem="u0w-SG-1kg" secondAttribute="bottom" constant="86" id="EuG-Yo-dgl"/>
+                            <constraint firstItem="25P-Hi-X3e" firstAttribute="centerX" secondItem="u0w-SG-1kg" secondAttribute="centerX" id="EvV-qz-7Yd"/>
+                            <constraint firstItem="QQP-KM-2C3" firstAttribute="leading" secondItem="0aH-Pw-arG" secondAttribute="leading" id="GbH-b1-SHb"/>
+                            <constraint firstAttribute="trailing" secondItem="QQP-KM-2C3" secondAttribute="trailing" id="MSc-BI-Cdc"/>
+                            <constraint firstItem="u0w-SG-1kg" firstAttribute="leading" secondItem="0aH-Pw-arG" secondAttribute="leadingMargin" constant="55" id="Qku-hI-Bem"/>
+                            <constraint firstItem="QQP-KM-2C3" firstAttribute="centerX" secondItem="25P-Hi-X3e" secondAttribute="centerX" id="R8J-hP-1fS"/>
+                            <constraint firstItem="25P-Hi-X3e" firstAttribute="top" secondItem="QQP-KM-2C3" secondAttribute="bottom" constant="63" id="SGg-P6-LzZ"/>
+                            <constraint firstItem="QQP-KM-2C3" firstAttribute="top" secondItem="A5V-nT-sEp" secondAttribute="bottom" id="n92-7K-nfq"/>
+                            <constraint firstItem="u0w-SG-1kg" firstAttribute="top" secondItem="25P-Hi-X3e" secondAttribute="bottom" constant="46" id="s4C-pt-QZH"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Camera copy" selectedImage="Camera_selected" id="C6H-p2-Hl2"/>
                     <connections>
                         <outlet property="fld_caption" destination="25P-Hi-X3e" id="Lxq-Ry-Ecm"/>
                         <outlet property="fld_photo" destination="QQP-KM-2C3" id="BDB-Gd-WiA"/>
-                        <outlet property="postBtn" destination="u0w-SG-1kg" id="3uI-cY-iWL"/>
+                        <outlet property="postBtn" destination="u0w-SG-1kg" id="keI-pV-2k9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MHV-qK-9RV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75.362318840579718" y="1829.3478260869567"/>
+            <point key="canvasLocation" x="74.400000000000006" y="1829.2353823088458"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hT8-n3-13T">
@@ -1084,11 +1096,11 @@
         <image name="whiteBg" width="375" height="389"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="h3e-MI-oEy"/>
-        <segue reference="zx4-G8-Flb"/>
-        <segue reference="e3N-Zn-Gxe"/>
         <segue reference="ZOy-Oc-lGr"/>
-        <segue reference="LBI-9A-Jjm"/>
+        <segue reference="UrB-Lp-U9m"/>
+        <segue reference="fv0-mK-krs"/>
+        <segue reference="zx4-G8-Flb"/>
+        <segue reference="h3e-MI-oEy"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

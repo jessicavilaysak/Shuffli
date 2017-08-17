@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftKeychainWrapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TextFieldEffects.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,17 +57,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>01574A64F82DBBEB19DA96CBD4B4C4CD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>230AA2C0016C1D12908420432C35C0AC</key>
+		<key>145D31FB59A80BAF87DEE9383967F9ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2513CC7B5AE3F88F4B20A6D7B6DF0084</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,7 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8671AE8A289A45EC317FE986B1B70971</key>
+		<key>8ECDCEFD4F7D8C8B7B1B8C127B76630F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A58B187EE31059443181A8F60BCDA299</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
+		<key>BFEA2F02711721A6696AF8D381C5B98B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C8F34B85B3EA809CE27FF9A6490912E6</key>
+		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
 		<dict>
 			<key>primary</key>
 			<true/>

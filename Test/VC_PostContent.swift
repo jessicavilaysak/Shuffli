@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
+import SVProgressHUD
 
 class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -109,8 +110,44 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
         
         ref?.child("Caption").childByAutoId().setValue(caption) //post to firebase, but with auto ID need to change that to user id or something
         postImage(img: image!, caption: caption!)
+        uploadImg(img: image!)
+        
     }
-    
+    func uploadImg(img: UIImage){ //Posting image to firebase
+        
+        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+            
+            let imgUid = NSUUID().uuidString
+            
+            let metadata = FIRStorageMetadata()
+            
+            metadata.contentType = "img/jpeg"
+            
+            SVProgressHUD.show(withStatus: "Uploading")
+            
+            FIRStorage.storage().reference().child(imgUid).put(imgData, metadata: metadata) { (metadata, error) in
+                
+                SVProgressHUD.dismiss()
+                
+                if error != nil {
+                    
+                    print("did not upload img")
+                    
+                } else {
+                    
+                    print("uploaded")
+                    
+                    let downloadURl = metadata?.downloadURL()?.absoluteString
+                    print(downloadURl!)
+                    self.ref?.child("Image").child("URL").childByAutoId().setValue(downloadURl)
+                }
+            }
+        }
+
+        
+        
+        
+    }
     func postImage(img: UIImage, caption: String) {
         
         dataSource.postsobj.append((image: img, caption: caption))
@@ -136,6 +173,7 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         fld_photo.image = selectedImage
