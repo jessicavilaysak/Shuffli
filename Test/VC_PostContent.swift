@@ -143,11 +143,9 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
                 }
             }
         }
-
-        
-        
-        
     }
+    
+    
     func postImage(img: UIImage, caption: String) {
         
         dataSource.postsobj.append((image: img, caption: caption))

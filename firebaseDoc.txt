@@ -1,0 +1,35 @@
+/*
+ This function is used to send data to firebase.
+*/
+
+func uploadImg(img: UIImage){ //Posting image to firebase
+        
+        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+            
+            let imgUid = NSUUID().uuidString
+            
+            let metadata = FIRStorageMetadata()
+            
+            metadata.contentType = "img/jpeg"
+            
+            SVProgressHUD.show(withStatus: "Uploading")
+            
+            FIRStorage.storage().reference().child(imgUid).put(imgData, metadata: metadata) { (metadata, error) in
+                
+                SVProgressHUD.dismiss()
+                
+                if error != nil {
+                    
+                    print("did not upload img")
+                    
+                } else {
+                    
+                    print("uploaded")
+                    
+                    let downloadURl = metadata?.downloadURL()?.absoluteString
+                    print(downloadURl!)
+                    self.ref?.child("Image").child("URL").childByAutoId().setValue(downloadURl)
+                }
+            }
+        }
+    }
