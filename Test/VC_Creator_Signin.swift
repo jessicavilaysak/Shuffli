@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import SVProgressHUD
 import SwiftKeychainWrapper
+import Spring
 
 class VC_Creator_Signin: UIViewController, UITextFieldDelegate {
 
@@ -21,71 +22,92 @@ class VC_Creator_Signin: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        
-        // Do any additional setup after loading the view.
-        
-        //text field stylings
-       
-        fld_password.layer.cornerRadius = 4
-        fld_username.layer.cornerRadius = 4
         SigninBtn.layer.cornerRadius = 4
-        
-        
     }
+    
+    
     @IBAction func BtnTapped(_ sender: Any) {
+        
         dataSource.username = fld_username.text;
         if let email = fld_username.text, let pass = fld_password.text
         {
-            
             SVProgressHUD.show(withStatus: "Logging In")
             FIRAuth.auth()?.signIn(withEmail: email, password: pass, completion: { (user, error) in
-                SVProgressHUD.dismiss()
-                
+                SVProgressHUD.showSuccess(withStatus: "Logged in!")
+                SVProgressHUD.dismiss(withDelay: 1)
                 
                 if user != nil{
                     self.performSegue(withIdentifier: "goToHome", sender: self)
+                    self.setUser()
                 }
                 else{
+                    SVProgressHUD.showError(withStatus: "Login Failed, Please try again")
+                    SVProgressHUD.dismiss(withDelay: 6)
                     print(error!);
-                    let alert = UIAlertController(title: "Login Failed", message: "Enter correct username or password", preferredStyle: UIAlertControllerStyle.alert);
-                    let cancelAction = UIAlertAction(title: "OK",
-                                                     style: .cancel, handler: nil)
-                    alert.addAction(cancelAction)
-                    
-                    self.present(alert,animated: true){
-                        
-                    }
                 }
                 
-                
             })
-            
         }
-        //setUser()
-
     }
     
     func setUser(){ //set userUID value here 
         
         if let user = FIRAuth.auth()?.currentUser?.uid{
-            self.userUid = user
+            dataSource.uid = user
+            KeychainWrapper.standard.set(dataSource.uid, forKey: "uid") //set uid value in keychain
         }
         
-        keychain()
+        //keychain()
     }
-    /*
-    override func viewDidAppear(_ animated: Bool) {
-        if let _ = KeychainWrapper.standard.string(forKey: "uid"){ //retrive from keychain
-            
-            self.performSegue(withIdentifier: "goToHome", sender: self)
-            
-        }
-        
 }
- */
-    func keychain(){
-       
-        KeychainWrapper.standard.set(userUid, forKey: "uid") //set uid value in keychain
-    }
 
-}
+
+
+
+
+
+
+
+
+
+
+//    override func viewDidAppear(_ animated: Bool) {
+//
+//        super.viewDidAppear(animated)
+//
+//        if FIRAuth.auth()?.currentUser != nil{
+//            self.performSegue(withIdentifier: "goToHome", sender: self)
+//        }else{
+//            print("User is null")
+//        }
+//
+//    }
+
+
+
+
+
+
+    
+
+ 
+//    func keychain(){
+//       
+//        KeychainWrapper.standard.set(dataSource.uid, forKey: "uid") //set uid value in keychain
+//    }
+    // if let key = KeychainWrapper.standard.string(forKey: "uid"){//retrive from keychain
+
+    
+    
+    
+    //                    let alert = UIAlertController(title: "Login Failed", message: "Enter correct username or password", preferredStyle: UIAlertControllerStyle.alert);
+    //                    let cancelAction = UIAlertAction(title: "OK",
+    //                                                     style: .cancel, handler: nil)
+    //                    alert.addAction(cancelAction)
+    //
+    //                    self.present(alert,animated: true){
+    //
+    //                    }
+    
+
+

@@ -16,8 +16,8 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
 
     @IBOutlet var fld_caption: UITextView!
     @IBOutlet var fld_photo: UIImageView!
-    
     @IBOutlet weak var postBtn: UIButton!
+    
     let myPickerController = UIImagePickerController()
     
     var count = 1
@@ -39,9 +39,9 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
         
         myPickerController.delegate = self;
         
-         ref = FIRDatabase.database().reference() // get reference to actual db
-       postBtn.layer.cornerRadius = 4
-        
+        ref = FIRDatabase.database().reference() // get reference to actual db
+        postBtn.layer.cornerRadius = 4
+        fld_caption.layer.cornerRadius = 4
         
     }
     
@@ -84,7 +84,7 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
         let caption = fld_caption.text
         let image = fld_photo.image
         
-        if(image == UIImage(named: "ImagePlaceholder"))
+        if(image == UIImage(named: "takePhototPlaceholder"))
         {
             let refreshAlert = UIAlertController(title: "NOTICE", message: "Please select an image to post!", preferredStyle: UIAlertControllerStyle.alert)
             
@@ -108,12 +108,12 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
             return;
         }
         
-        ref?.child("Caption").childByAutoId().setValue(caption) //post to firebase, but with auto ID need to change that to user id or something
+        //ref?.child("Caption").childByAutoId().setValue(caption) //post to firebase, but with auto ID need to change that to user id or something
         postImage(img: image!, caption: caption!)
-        uploadImg(img: image!)
+        uploadImg(img: image!, caption: caption!)
         
     }
-    func uploadImg(img: UIImage){ //Posting image to firebase
+    func uploadImg(img: UIImage, caption: String){ //Posting image to firebase
         
         if let imgData = UIImageJPEGRepresentation(img, 0.2) {
             
@@ -126,20 +126,22 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
             SVProgressHUD.show(withStatus: "Uploading")
             
             FIRStorage.storage().reference().child(imgUid).put(imgData, metadata: metadata) { (metadata, error) in
-                
-                SVProgressHUD.dismiss()
-                
+        
                 if error != nil {
-                    
+                    SVProgressHUD.showError(withStatus: "Could not upload!")
+                    SVProgressHUD.dismiss(withDelay: 3)
                     print("did not upload img")
                     
                 } else {
                     
                     print("uploaded")
+                    SVProgressHUD.showSuccess(withStatus: "Uploaded!")
+                    SVProgressHUD.dismiss(withDelay: 3)
                     
                     let downloadURl = metadata?.downloadURL()?.absoluteString
-                    print(downloadURl!)
-                    self.ref?.child("Image").child("URL").childByAutoId().setValue(downloadURl)
+                    print("downloadURL" + downloadURl!)
+                    let uid = FIRAuth.auth()?.currentUser?.uid
+                    self.ref?.child("userPosts").child("10101010101/001CottonOn").child(uid!).childByAutoId().setValue(["url": downloadURl, "uploadedBy": uid!, "description": caption, "category": "School", "status": "approved"])
                 }
             }
         }
@@ -150,7 +152,7 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
         
         dataSource.postsobj.append((image: img, caption: caption))
         
-        self.fld_photo.image = #imageLiteral(resourceName: "ImagePlaceholder")
+       // self.fld_photo.image = #imageLiteral(resourceName: "ImagePlaceholder")
         self.fld_caption.text = "Insert caption..."
         self.fld_caption.textColor = UIColor.lightGray
         

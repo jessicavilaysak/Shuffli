@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class Datasource {
 
@@ -14,6 +15,8 @@ class Datasource {
     var userArray : [String] = ["temp_user_00", "temp_user_01", "temp_user_02"]
     var currentCount: Int!
     var userNotifications: Int!;
+    var uid: String!
+    
     var postsobj : [(image: UIImage, caption: String)] = [(image: UIImage(named: "1")!, caption: "What a beautiful day"),
         (image: UIImage(named: "2")!, caption: "What a total uggo"),
         (image: UIImage(named: "3")!, caption: "I love this!!")
@@ -29,6 +32,7 @@ class Datasource {
         postNotifications = 0;
         acceptedPayment = false;
         userNotifications = 0;
+        uid = "";
     }
     
   

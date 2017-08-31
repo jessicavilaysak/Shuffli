@@ -14,6 +14,8 @@ pod 'IQKeyboardManagerSwift'
 pod 'SVProgressHUD'
 pod 'TextFieldEffects'
 pod 'SwiftKeychainWrapper'
+pod 'SDWebImage/WebP'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 pod ‘Toucan’, ‘~> 0.6’
 
   target 'TestTests' do
