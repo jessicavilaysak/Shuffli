@@ -53,7 +53,7 @@ class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableView
             if user != nil {
                 print("uid: "+dataSource.uid)
                 print(user!)
-                self.dbRef.child("userPosts/10101010101/001CottonOn").child(dataSource.uid).observe(FIRDataEventType.value, with: {(snapshot) in
+                self.dbRef.child("userPosts/-KsnTZDmU_xD1A1WLUiQ/001CottonOn").child(dataSource.uid).observe(FIRDataEventType.value, with: {(snapshot) in
                     print(snapshot)
                     var newImages = [imageDataModel]()
                     
@@ -93,17 +93,18 @@ class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        print("count::");
         let cell = self.viewposts.dequeueReusableCell(withIdentifier: "cellCreator", for: indexPath as IndexPath) as! CustomCellCreator
-        
+        print(images.count);
         if indexPath.row < images.count
         {
             let image = images[indexPath.row]
-            //cell.fld_caption.text = temp.caption
             //let temp = dataSource.postsobj[indexPath.row]
             cell.photo.sd_setShowActivityIndicatorView(true)
             cell.photo.sd_setIndicatorStyle(.gray)
             cell.photo.sd_setImage(with: URL(string: image.url),placeholderImage: UIImage(named: "placeholder"))
+            cell.imageCaption.text = image.caption
+            
         }
         
         return cell

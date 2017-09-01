@@ -49,6 +49,18 @@ class VC_Creator_Signin: UIViewController, UITextFieldDelegate {
             })
         }
     }
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        
+        if FIRAuth.auth()?.currentUser != nil{
+            self.performSegue(withIdentifier: "goToHome", sender: self)
+            setUser()
+        }else{
+            print("User is null")
+        }
+        
+    }
     
     func setUser(){ //set userUID value here 
         
@@ -71,17 +83,7 @@ class VC_Creator_Signin: UIViewController, UITextFieldDelegate {
 
 
 
-//    override func viewDidAppear(_ animated: Bool) {
-//
-//        super.viewDidAppear(animated)
-//
-//        if FIRAuth.auth()?.currentUser != nil{
-//            self.performSegue(withIdentifier: "goToHome", sender: self)
-//        }else{
-//            print("User is null")
-//        }
-//
-//    }
+
 
 
 

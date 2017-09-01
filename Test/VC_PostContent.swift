@@ -138,7 +138,9 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
                     let downloadURl = metadata?.downloadURL()?.absoluteString
                     print("downloadURL" + downloadURl!)
                     let uid = FIRAuth.auth()?.currentUser?.uid
-                    self.ref?.child("userPosts").child("10101010101/001CottonOn").child(uid!).childByAutoId().setValue(["url": downloadURl, "uploadedBy": uid!, "description": caption, "category": "School", "status": "approved"])
+                    self.ref?.child("userPosts").child("-KsnTZDmU_xD1A1WLUiQ/001CottonOn").child(uid!).childByAutoId().setValue(["url": downloadURl, "uploadedBy": uid!, "description": caption, "category": "School", "status": "approved"])
+                    self.ref?.child("creatorPosts").child("-KsnTZDmU_xD1A1WLUiQ/001CottonOn").childByAutoId().setValue(["url": downloadURl, "uploadedBy": uid!, "description": caption, "category": "School", "status": "approved"])
+
                     self.fld_photo.image = #imageLiteral(resourceName: "takePhototPlaceholder")
                     self.fld_caption.text = ""
                     let tabItems = self.tabBarController?.tabBar.items;
