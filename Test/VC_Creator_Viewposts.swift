@@ -54,7 +54,6 @@ class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableView
                 print("uid: "+dataSource.uid)
                 print(user!)
                 self.dbRef.child("userPosts/-KsnTZDmU_xD1A1WLUiQ/001CottonOn").child(dataSource.uid).observe(FIRDataEventType.value, with: {(snapshot) in
-                    print(snapshot)
                     var newImages = [imageDataModel]()
                     
                     for imageSnapshot in snapshot.children{
@@ -93,7 +92,7 @@ class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("count::");
+        
         let cell = self.viewposts.dequeueReusableCell(withIdentifier: "cellCreator", for: indexPath as IndexPath) as! CustomCellCreator
         print(images.count);
         if indexPath.row < images.count
@@ -108,6 +107,18 @@ class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableView
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main" , bundle: nil)
+        let destVC = storyboard.instantiateViewController(withIdentifier: "cellToVc") as! VC_CellToVCViewController
+        
+        let image = images[indexPath.row]
+        destVC.imagesDv =  image.url                
+        destVC.captionDv = image.caption
+        
+        self.navigationController?.pushViewController(destVC, animated: true)
+        
     }
     
     
