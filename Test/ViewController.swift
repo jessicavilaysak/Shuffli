@@ -22,8 +22,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var loginButton: UIButton!
-    
-    
+        
+
     var isLogin:Bool = true
     
     

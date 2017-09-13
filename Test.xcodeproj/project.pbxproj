@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C4406FE1EC9F62A00CC98F1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4406FD1EC9F62A00CC98F1 /* Extensions.swift */; };
 		1C4407001EC9FA7F00CC98F1 /* Toucan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4406FF1EC9FA7F00CC98F1 /* Toucan.swift */; };
 		22049DBC1EC3FE66001A2FF7 /* VC_Creator_ConfirmPword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049DBB1EC3FE66001A2FF7 /* VC_Creator_ConfirmPword.swift */; };
 		22049DBE1EC4042E001A2FF7 /* VC_ACreator_Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049DBD1EC4042E001A2FF7 /* VC_ACreator_Payment.swift */; };
@@ -55,7 +54,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C4406FD1EC9F62A00CC98F1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1C4406FF1EC9FA7F00CC98F1 /* Toucan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Toucan.swift; path = ../Pods/Toucan/Source/Toucan.swift; sourceTree = "<group>"; };
 		22049DBB1EC3FE66001A2FF7 /* VC_Creator_ConfirmPword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC_Creator_ConfirmPword.swift; sourceTree = "<group>"; };
 		22049DBD1EC4042E001A2FF7 /* VC_ACreator_Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC_ACreator_Payment.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 				61F3F19D1F5A95B3003A0B1D /* VC_CellToVCViewController.swift */,
 				224894D71EC38D2400162B80 /* VC_PostContent.swift */,
 				617CEC1F1E8CE0D600047578 /* ViewController.swift */,
-				1C4406FD1EC9F62A00CC98F1 /* Extensions.swift */,
 				1C4406FF1EC9FA7F00CC98F1 /* Toucan.swift */,
 				6176F6E61F54522500F3C444 /* downloadImageModel.swift */,
 			);
@@ -515,7 +512,6 @@
 				22C1DF271EC32A1C0022DC01 /* VC_ACreator_HomePage.swift in Sources */,
 				22E4979E1EC31B0300B419E9 /* VC_ACreator_Signin.swift in Sources */,
 				617CEC1E1E8CE0D600047578 /* AppDelegate.swift in Sources */,
-				1C4406FE1EC9F62A00CC98F1 /* Extensions.swift in Sources */,
 				2285D6E51EC3F61F00211D41 /* CustomCellCreator.swift in Sources */,
 				61F3F19E1F5A95B3003A0B1D /* VC_CellToVCViewController.swift in Sources */,
 				224894D81EC38D2400162B80 /* VC_PostContent.swift in Sources */,

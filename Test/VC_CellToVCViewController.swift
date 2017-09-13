@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import FirebaseDatabase
 
 class VC_CellToVCViewController: UIViewController {
     
@@ -23,10 +24,13 @@ class VC_CellToVCViewController: UIViewController {
         super.viewDidLoad()
         image.sd_setImage(with: URL(string:imagesDv!))
         imgCaption.text = captionDv
-        
         imgCaption.layer.cornerRadius = 4
         
     }
-
-
+    
+    
+    @IBAction func deletePost(_ sender: Any) {
+        
+        
+    }
 }

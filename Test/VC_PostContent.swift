@@ -99,7 +99,7 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
             
             refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
                 self.uploadImg(img: image!, caption: "");
-
+                
             }))
             
             refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in
@@ -108,8 +108,6 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
             return;
         }
         
-        //ref?.child("Caption").childByAutoId().setValue(caption) //post to firebase, but with auto ID need to change that to user id or something
-        //postImage(img: image!, caption: caption!)
         uploadImg(img: image!, caption: caption!)
         
     }
@@ -124,12 +122,13 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
             
             SVProgressHUD.show(withStatus: "Uploading")
             FIRStorage.storage().reference().child(imgUid).put(imgData, metadata: metadata) { (metadata, error) in
-                if error != nil {
+                if error != nil
+                {
                     SVProgressHUD.showError(withStatus: "Could not upload!")
                     SVProgressHUD.dismiss(withDelay: 3)
                     print("did not upload img")
                     
-                } else {
+                } else{
                     
                     print("uploaded")
                     SVProgressHUD.showSuccess(withStatus: "Uploaded!")
@@ -142,7 +141,7 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
                     self.ref?.child("creatorPosts").child("-KsnTZDmU_xD1A1WLUiQ/001CottonOn").childByAutoId().setValue(["url": downloadURl, "uploadedBy": uid!, "description": caption, "category": "School", "status": "approved"])
 
                     self.fld_photo.image = #imageLiteral(resourceName: "takePhototPlaceholder")
-                    self.fld_caption.text = ""
+                    self.fld_caption.text = " "
                     let tabItems = self.tabBarController?.tabBar.items;
                     if((tabItems?.count)! > 2)
                     {
@@ -171,14 +170,6 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
         dismiss(animated: true, completion: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    
-    
     @IBAction func buttonSelectImage(_ sender: Any) {
 
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
@@ -191,9 +182,7 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
             self.photoLibrary()
         }))
         
-        
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-        
         self.present(actionSheet, animated: true, completion: nil)
         
     }

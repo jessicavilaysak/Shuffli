@@ -54,23 +54,19 @@ class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableView
                 print("uid: "+dataSource.uid)
                 print(user!)
                 self.dbRef.child("userPosts/-KsnTZDmU_xD1A1WLUiQ/001CottonOn").child(dataSource.uid).observe(FIRDataEventType.value, with: {(snapshot) in
-                    var newImages = [imageDataModel]()
-                    
+                    var newImages = [imageDataModel]()                    
                     for imageSnapshot in snapshot.children{
                         let imgObj = imageDataModel(snapshot: imageSnapshot as! FIRDataSnapshot)
                         newImages.append(imgObj)
                     }
-                    
                     self.images = newImages
                     self.viewposts.reloadData()
                 })
             }
-       
-            
         })
-        
-        
     }
+    
+    
 
     
     override func viewDidAppear(_ animated: Bool) {
@@ -121,6 +117,16 @@ class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableView
         
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        self.images.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath],with: .automatic)
+        
+    }
     
     @IBAction func logout(_ sender: Any) {
         if FIRAuth.auth()?.currentUser != nil {
@@ -135,11 +141,3 @@ class VC_Creator_Viewposts: UIViewController, UITableViewDataSource, UITableView
         }
     }
 }
-
-
-
-
-//dataSource.uid = ""
-//KeychainWrapper.standard.set(dataSource.uid, forKey: "uid")
-
-
