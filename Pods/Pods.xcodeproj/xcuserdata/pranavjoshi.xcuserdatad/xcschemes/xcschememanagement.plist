@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DropDown.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -15,6 +20,21 @@
 			<false/>
 		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Material-com.cosmicmind.material.fonts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Material-com.cosmicmind.material.icons.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Material.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,17 +69,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftKeychainWrapper.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>TextFieldEffects.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Toucan.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UITextView+Placeholder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -72,22 +92,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>07D59483EAA94A63CB20E1DDD719F0A4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>23ADA8F0018D34D181C6CA0222F33ECD</key>
+		<key>223079ED9BD30664569FE20B7868177F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4874DC6195E15D23DB16CEED1941C49B</key>
+		<key>255167CC9534F26DC3B92EB63D86B48E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2FB513F44EE1AD0B06284772D79DEDCF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3437417D5D0529C870C67AA2FDDC603E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>39AA3FC7447AC6B6A131668CFF9C01CD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A5897FCD2621886E495618AB901B1EF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3F6216C12EEC5981D6D226242C701598</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4B15071D13A384D6CA8ADC3FFEB323D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,17 +142,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5168099F2EBFC99A707C03C9EADE01A5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54D5B48AD32ABDB3C7469EBDAEC749CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>624C5A9D7E41DE757CEDA330D7C13308</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>77FFF5286BBF4A82FEFEEB5C432C55B2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7AFD67BCF88942FC9B5109993D03D7D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,7 +162,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>92336E58B9D40AE550C3A4D45756BD41</key>
+		<key>8D511562A8961C5B7A5DD87BAE2374F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -128,11 +173,6 @@
 			<true/>
 		</dict>
 		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DF92EB2E2D2E477E0FC12BEC55E3E467</key>
 		<dict>
 			<key>primary</key>
 			<true/>

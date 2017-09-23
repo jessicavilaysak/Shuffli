@@ -7,46 +7,32 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
 class Datasource {
-
+    
     var username: String!
-    var userArray : [String] = ["temp_user_00", "temp_user_01", "temp_user_02"]
+    var userArray : [String] = ["temp_user_00", "temp_user_01", "temp_user_02", "temp_user_03", "temp_user_04", "temp_user_05"]
     var currentCount: Int!
     var userNotifications: Int!;
-    var uid: String!
-    
     var postsobj : [(image: UIImage, caption: String)] = [(image: UIImage(named: "1")!, caption: "What a beautiful day"),
-        (image: UIImage(named: "2")!, caption: "What a total uggo"),
-        (image: UIImage(named: "3")!, caption: "I love this!!")
-     ]
+                                                          (image: UIImage(named: "2")!, caption: "What a total uggo"),
+                                                          (image: UIImage(named: "3")!, caption: "I love this!!")
+    ]
     //var postsobj : [(image: UIImage, caption: String)] = []
     var tempPosts : [String] = ["1", "2", "3", "4"]
     var postNotifications: Int!;
     var acceptedPayment: Bool!;
-
+    
     init() {
         
         currentCount = 3
         postNotifications = 0;
         acceptedPayment = false;
         userNotifications = 0;
-        uid = "";
     }
     
-  
+    
 }
 let dataSource = Datasource()
 
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
+

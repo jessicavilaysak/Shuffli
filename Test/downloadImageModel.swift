@@ -14,23 +14,33 @@ struct imageDataModel{
     let key : String!
     let url : String!
     let ref : FIRDatabaseReference?
-    let caption : String!
+    var caption : String!
+    var dashboardApproved : Bool!
+    let creatorID: String!
+    let uploadedBy: String!
+    let approvedBy: String!
+    let imgId: String!
     
-    init(key : String, url: String, caption: String) {
-        self.key = key
-        self.url = url
+    
+    init() {
+        self.key = nil
+        self.url = nil
         self.ref = nil
-        self.caption = caption
-        
+        self.caption = nil
+        self.dashboardApproved = false;
+        self.creatorID = nil;
+        self.uploadedBy = nil;
+        self.approvedBy = nil;
+        self.imgId = nil;
     }
     
     init(snapshot: FIRDataSnapshot){
         key = snapshot.key
         ref = snapshot.ref
-    
+        
         
         let snapshotValue = snapshot.value as? NSDictionary
-        
+        print(snapshotValue!);
         if let imageURL = snapshotValue?["url"] as? String{
             url = imageURL
         }else{
@@ -41,6 +51,39 @@ struct imageDataModel{
         }else{
             caption = ""
         }
+        if let imageStatus = snapshotValue?["status"] as? String{
+            if(imageStatus == "approved")
+            {
+                dashboardApproved = true;
+            }
+            else
+            {
+                dashboardApproved = false;
+            }
+        }else{
+            dashboardApproved = false;
+        }
+        if let lCreatorID = snapshotValue?["creatorID"] as? String{
+            creatorID = lCreatorID;
+        }else{
+            creatorID = "";
+        }
+        if let lUploadedBy = snapshotValue?["uploadedBy"] as? String{
+            uploadedBy = lUploadedBy;
+        }else{
+            uploadedBy = "";
+        }
+        if let lApprovedBy = snapshotValue?["approvedBy"] as? String{
+            approvedBy = lApprovedBy;
+        }else{
+            approvedBy = "";
+        }
+        if let lImgId = snapshotValue?["imageUid"] as? String{
+            imgId = lImgId;
+        }else{
+            imgId = "";
+        }
     }
     
 }
+var images = [imageDataModel]()

@@ -7,14 +7,19 @@
 //
 
 import UIKit
-class VC_ACreator_HomePage: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    @IBOutlet var fldusername: UILabel!
-    
-    @IBOutlet weak var storeImage: UIImageView!
-    @IBOutlet var fldcompany: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
+import FirebaseDatabase
+import FirebaseAuth
 
+class VC_ACreator_HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var bgImage: UIImageView!
+    @IBOutlet var fldusername: UILabel!
+    @IBOutlet var fldcompany: UILabel!
+    @IBOutlet weak var userTable: UITableView!
+    
+    
+   // @IBOutlet weak var collectionView: UICollectionView!
+    
     func deleteUserButton(sender: UITapGestureRecognizer) {
         var index = Int((sender.view?.tag)!);
         //delete from data source
@@ -25,74 +30,79 @@ class VC_ACreator_HomePage: UIViewController, UICollectionViewDataSource, UIColl
         dataSource.userArray.remove(at: index);
         
         //tell collection view data source has changed
-        let item = IndexPath(item: index, section: 0);
-        self.collectionView.deleteItems(at: [item]);
+        //self.collectionView.reloadData()
     }
     
-    @IBOutlet var fld_nouser: UILabel!
-
-    @IBOutlet var viewusers: UICollectionView!
+    
+    //@IBOutlet var viewusers: UICollectionView!
     override func viewDidLoad() {
-        fldcompany.text = "Coffee Club (Eastland)"
-        fldusername.text = dataSource.username;
-        fld_nouser.isHidden = false;
-        storeImage.image = Toucan(image: #imageLiteral(resourceName: "CoffeeClub")).maskWithEllipse().image;
         
-        if dataSource.userArray.count > 0
+        userTable.delegate = self;
+        userTable.dataSource = self;
+        
+        fldcompany.text = userObj.accountName;
+        fldusername.text = userObj.username;
+        /*if dataSource.userArray.count > 0
         {
             fld_nouser.isHidden = true
-        }
+        }*/
         super.viewDidLoad()
-        viewusers.reloadData()
+        //viewusers.reloadData()
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view
+        
+        //Creating a shadow
+        bgImage.layer.masksToBounds = false
+        bgImage.layer.shadowColor = UIColor.black.cgColor
+        bgImage.layer.shadowOffset = CGSize(width: 1.0, height:1.0)
+        bgImage.layer.shadowOpacity = 0.5
+        bgImage.layer.shadowRadius = 10;
+        bgImage.layer.shouldRasterize = true //tells IOS to cache the shadow
     }
-    
-    
+
     override func viewDidAppear(_ animated: Bool) {
-        if dataSource.userArray.count > 0
-        {
-            fld_nouser.isHidden = true
-        }
-        viewusers.reloadData()
         
-        let tabItems = self.tabBarController?.tabBar.items;
-        let tabItem = tabItems?[0]
-        dataSource.userNotifications = 0;
-        tabItem?.badgeValue = nil
+        
+        
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.userArray.count
+    
+    func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int
+    {
+        return 5
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell : CustomCellUser = collectionView.dequeueReusableCell(withReuseIdentifier: "cellUser", for: indexPath) as! CustomCellUser
-        cell.fld_username.text = dataSource.userArray[indexPath.row]
-        
-        cell.deleteUser.tag = indexPath.row;
-        
-        //set delete image as a touch,
-        let singletap = UITapGestureRecognizer(target: self, action: #selector(deleteUserButton))
-        singletap.numberOfTapsRequired = 1 // you can change this value
-        cell.deleteUser.isUserInteractionEnabled = true
-        cell.deleteUser.addGestureRecognizer(singletap)
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = self.userTable.dequeueReusableCell(withIdentifier: "userCell", for: indexPath as IndexPath) as! ManageUserCell
+        cell.userName.text = "Simon Waters"
+        cell.userEmail.text = FIRAuth.auth()?.currentUser?.email
         
         return cell
     }
-    
-    
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func logout(_ sender: Any) {
+        if FIRAuth.auth()?.currentUser != nil {
+            do{
+                try FIRAuth.auth()?.signOut()
+                let vc = storyboard?.instantiateViewController(withIdentifier: "VC_signin");
+                present(vc!, animated: true, completion: nil);
+            } catch let error as NSError{
+                print(error)
+            }
+        }else{
+            print("User is nill")
+        }
     }
-    */
+
+    
+    @IBAction func btn_addUser(_ sender: Any) {
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "VC_adduser")
+        self.present(vc!,animated: true,completion: nil)
+        
+    }
+    
+    
 
 }
