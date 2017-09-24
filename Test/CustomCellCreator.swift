@@ -50,8 +50,6 @@ class CustomCellCreator: UITableViewCell {
         
         cardviewBg.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         cardviewBg.layer.shadowOpacity = 0.8
-        cardviewBg.layer.shadowRadius = 1.0
-        
     }
     
 }

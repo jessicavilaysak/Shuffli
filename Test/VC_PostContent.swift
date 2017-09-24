@@ -57,7 +57,6 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
 
     let categories = DropDown()  // creating a dropdown object
     var categoryName: String!
-    
     let myPickerController = UIImagePickerController()
     var count = 1
     var ref: FIRDatabaseReference? // create property
@@ -67,7 +66,8 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
         super.viewDidLoad()
         
         
-        setupCategories() //dropdown list 
+        setupCategories() //dropdown list
+        categoryName = nil
         
         self.hideKeyboardWhenTappedAround()
         self.fld_caption.delegate = self;
@@ -106,9 +106,10 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
     //Keboard dismissed when return key is pressed 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {
-            textView.resignFirstResponder()
+            self.dismissKeyboard()
             return false
         }
+        
         return true
     }
     
@@ -142,7 +143,7 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
     override func viewWillAppear(_ animated: Bool) {
         if(categoryName != nil)
         {
-            btn_chooseCategory.setTitle(categoryName, for: UIControlState.normal);
+            btn_chooseCategory.setTitle(categoryName + " ▾", for: UIControlState.normal);
         }
         else
         {
@@ -204,10 +205,10 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
             present(refreshAlert, animated: true, completion: nil);
             return;
         }
-            if categoryName == nil{
-                let refreshAlert = UIAlertController(title: "NOTICE", message: "Are you sure you wish to post without a category?", preferredStyle: UIAlertControllerStyle.alert)
-                refreshAlert.addAction(UIAlertAction(title:"Ok", style: .default))
-            }
+        if categoryName == nil{
+            let refreshAlert = UIAlertController(title: "NOTICE", message: "Are you sure you wish to post without a category?", preferredStyle: UIAlertControllerStyle.alert)
+            refreshAlert.addAction(UIAlertAction(title:"Ok", style: .default))
+        }
         
         uploadImg(img: image!, caption: caption!)
         
@@ -334,6 +335,7 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
     
     @IBAction func button_removeImage(_ sender: Any) {
         hideCorrespondingElements(type: "1");
+        fld_chosenImage.image = nil // added this because image was still being posted after cancel
     }
     
     func setupCategories() {
