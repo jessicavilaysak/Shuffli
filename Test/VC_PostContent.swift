@@ -55,8 +55,9 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
     @IBOutlet weak var btn_removeImage: UIButton!
     @IBOutlet weak var fld_chosenImage: UIImageView!
 
-    let categories = DropDown()
+    let categories = DropDown()  // creating a dropdown object
     var categoryName: String!
+    
     let myPickerController = UIImagePickerController()
     var count = 1
     var ref: FIRDatabaseReference? // create property
@@ -69,6 +70,7 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
         setupCategories() //dropdown list 
         
         self.hideKeyboardWhenTappedAround()
+        self.fld_caption.delegate = self;
         // Do any additional setup after loading the view.
         
         let singletap = UITapGestureRecognizer(target: self, action: #selector(camera))
@@ -96,12 +98,18 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
         }
         else
         {
-            btn_chooseCategory.setTitle("NUN", for: UIControlState.normal);
+            btn_chooseCategory.setTitle("Choose Category", for: UIControlState.normal);
         }
         // Do any additional setup after loading the view.
-        
-        
+    }
     
+    //Keboard dismissed when return key is pressed 
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
     
     func viewImage() {
@@ -151,8 +159,7 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Insert caption..."
-            textView.textColor = UIColor.lightGray
+            textView.placeholder = "Say something interesting..."
         }
     }
     
@@ -197,6 +204,11 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
             present(refreshAlert, animated: true, completion: nil);
             return;
         }
+            if categoryName == nil{
+                let refreshAlert = UIAlertController(title: "NOTICE", message: "Are you sure you wish to post without a category?", preferredStyle: UIAlertControllerStyle.alert)
+                refreshAlert.addAction(UIAlertAction(title:"Ok", style: .default))
+            }
+        
         uploadImg(img: image!, caption: caption!)
         
     }
@@ -220,12 +232,6 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
     func uploadImg(img: UIImage, caption: String){ //Posting image to firebase
         
         let imgFixed = fixOrientation(img: img);
-        if let categories = categoryName{
-            if categories == nil{
-                
-            }
-        }
-        
         if let imgData = UIImageJPEGRepresentation(imgFixed, 0.2) {
             let imgUid = NSUUID().uuidString
        
