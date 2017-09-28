@@ -44,7 +44,7 @@ import FirebaseAuth
 import SVProgressHUD
 import DropDown
 
-class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var btn_chooseCategory: UIButton!
     @IBOutlet var fld_camera: UIImageView!
@@ -60,14 +60,15 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
     let myPickerController = UIImagePickerController()
     var count = 1
     var ref: FIRDatabaseReference? // create property
-    
+    var categoryDataSource = [String]();
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         setupCategories() //dropdown list
-        categoryName = nil
+        categoryName = nil;
+        
+        SVProgressHUD.setDefaultStyle(.dark)
         
         self.hideKeyboardWhenTappedAround()
         self.fld_caption.delegate = self;
@@ -100,21 +101,36 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
         {
             btn_chooseCategory.setTitle("Choose Category", for: UIControlState.normal);
         }
-        // Do any additional setup after loading the view.
+        
+        FIRDatabase.database().reference().child("accountCategories/"+userObj.accountID!).observeSingleEvent(of: .value, with: {(keyvalue) in
+            print(keyvalue)
+            let cValues = keyvalue.value as? [String : String] ?? [:];
+            var newValues = [String]();
+            newValues.append("None")
+            for c in cValues {
+                self.categoryDataSource.append(c.key);
+                newValues.append(c.value)
+            }
+            self.categories.dataSource = newValues;
+        })
     }
     
     //Keboard dismissed when return key is pressed 
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    /*func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {
             self.dismissKeyboard()
             return false
         }
         
         return true
-    }
+    }*/
     
     func viewImage() {
-        print("viewImage() pressed.")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "VC_viewselectedimg") as! VC_selectedimage;
+        vc.imgSent = fld_chosenImage.image;
+        vc.modalPresentationStyle = UIModalPresentationStyle.overFullScreen;
+        vc.modalTransitionStyle = UIModalTransitionStyle.coverVertical;
+        self.present(vc, animated: true, completion: nil);
     }
     
     func hideCorrespondingElements(type: String) {
@@ -181,7 +197,6 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
         
         let caption = fld_caption.text
         let image = fld_chosenImage.image
-      
         if(image == nil)
         {
             let refreshAlert = UIAlertController(title: "NOTICE", message: "Please select an image to post!", preferredStyle: UIAlertControllerStyle.alert)
@@ -192,25 +207,29 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
             return;
         }
         if(caption == "")
-            
         {
             let refreshAlert = UIAlertController(title: "NOTICE", message: "Are you sure you wish to post this image without a caption?", preferredStyle: UIAlertControllerStyle.alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
-                self.uploadImg(img: image!, caption: "");
+                self.uploadImg();
                 
+            }));
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in
+            }));
+            present(refreshAlert, animated: true, completion: nil);
+        }
+        if categoryName == nil || categoryName == "NONE"{
+            let refreshAlert = UIAlertController(title: "NOTICE", message: "Are you sure you wish to post without a category?", preferredStyle: UIAlertControllerStyle.alert)
+            refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
+                self.uploadImg()
             }));
             refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in
             }));
             present(refreshAlert, animated: true, completion: nil);
             return;
         }
-        if categoryName == nil{
-            let refreshAlert = UIAlertController(title: "NOTICE", message: "Are you sure you wish to post without a category?", preferredStyle: UIAlertControllerStyle.alert)
-            refreshAlert.addAction(UIAlertAction(title:"Ok", style: .default))
-        }
         
-        uploadImg(img: image!, caption: caption!)
+        uploadImg()
         
     }
     
@@ -230,7 +249,18 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
         
     }
     
-    func uploadImg(img: UIImage, caption: String){ //Posting image to firebase
+    func uploadImg(){ //Posting image to firebase
+        let img = fld_chosenImage.image!;
+        let caption = fld_caption.text!;
+        var category = self.categoryName;
+        if (category == nil) || (category == "None")
+        {
+            category = "";
+        }
+        else
+        {
+            category = self.categoryName!;
+        }
         
         let imgFixed = fixOrientation(img: img);
         if let imgData = UIImageJPEGRepresentation(imgFixed, 0.2) {
@@ -264,14 +294,14 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
                     if(userObj.isAdmin)
                     {
                         path = "creatorPosts/"+accountID!+"/"+creatorID!;
-                        self.ref?.child(path).childByAutoId().setValue(["url": URLtoSend, "uploadedBy": uid!, "description": caption, "status": "pending", "creatorID": creatorID!, "imageUid": imgUid, "category":self.categoryName])
+                        self.ref?.child(path).childByAutoId().setValue(["url": URLtoSend, "uploadedBy": uid!, "description": caption, "status": "pending", "creatorID": creatorID!, "imageUid": imgUid, "category":category])
                     }
                     else
                     {
                         path = "userPosts/"+accountID!+"/"+creatorID!+"/"+uid!;
-                        self.ref?.child(path).childByAutoId().setValue(["url": URLtoSend, "uploadedBy": uid!, "description": caption, "status": "pending", "creatorID": creatorID!, "review": true, "imageUid": imgUid, "category":self.categoryName])
+                        self.ref?.child(path).childByAutoId().setValue(["url": URLtoSend, "uploadedBy": uid!, "description": caption, "status": "pending", "creatorID": creatorID!, "review": true, "imageUid": imgUid, "category":category])
                     }
-                                      self.hideCorrespondingElements(type: "1");
+                    self.hideCorrespondingElements(type: "1");
                     self.fld_caption.text = ""
                     let tabItems = self.tabBarController?.tabBar.items;
                     
@@ -341,7 +371,6 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
     func setupCategories() {
         categories.anchorView = btn_chooseCategory
         categories.bottomOffset = CGPoint(x: 0, y: btn_chooseCategory.bounds.height)
-        categories.dataSource = ["Food", "Fashion", "Travel", "Sports", "Health", "Corporate"]
         // Action triggered on selection
         categories.selectionAction = { [unowned self] (index, item) in
             self.btn_chooseCategory.setTitle(item + " ▾", for: .normal)

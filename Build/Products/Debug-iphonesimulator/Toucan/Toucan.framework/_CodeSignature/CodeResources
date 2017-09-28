@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Toucan-Swift.h</key>
 		<data>
-		e7aHSunOJOLCr0OFvh7uo0FCWKo=
+		ceu/6lquUvqrwnSXTiJ+yzPLOlE=
 		</data>
 		<key>Headers/Toucan-umbrella.h</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		umKGFZ2N+i3+HajlQWDPKWEDv4E=
+		IHHvse47+jPdJwgXYw6ZGte7yfM=
 		</data>
 		<key>Modules/Toucan.swiftmodule/i386.swiftdoc</key>
 		<data>
@@ -24,9 +24,17 @@
 		<data>
 		5Xtob7eZkxsdUJmG2Q7Dk9IjypA=
 		</data>
+		<key>Modules/Toucan.swiftmodule/x86_64.swiftdoc</key>
+		<data>
+		cxGPwsXOCQ9eU7GkkACyNvApGmA=
+		</data>
+		<key>Modules/Toucan.swiftmodule/x86_64.swiftmodule</key>
+		<data>
+		Jts4ghT4TvBKN+UmP/GzsAGbXro=
+		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		9R1ZzOCs4lPUxImw76AlD0+FBXA=
+		WSFdx8EcdBF4q+TkXhkg9Vix10c=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -35,11 +43,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			e7aHSunOJOLCr0OFvh7uo0FCWKo=
+			ceu/6lquUvqrwnSXTiJ+yzPLOlE=
 			</data>
 			<key>hash2</key>
 			<data>
-			CJE8fLquyo5Iz/UKtjesQyEd+LuHKvH+21ejB8oeIKE=
+			lvaWdL84tB7FmePSJDpkJMXv28YpD7Q85wBrcwlQmLc=
 			</data>
 		</dict>
 		<key>Headers/Toucan-umbrella.h</key>
@@ -75,15 +83,37 @@
 			knWEiNBkFhUKdxJ8acGlCIDgWdTCOrcns3qwuYyREhk=
 			</data>
 		</dict>
+		<key>Modules/Toucan.swiftmodule/x86_64.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			cxGPwsXOCQ9eU7GkkACyNvApGmA=
+			</data>
+			<key>hash2</key>
+			<data>
+			h0vt7ZuAVwPEGpgjmIUGdj4ZBAmcDFDPMt/oB+wiutU=
+			</data>
+		</dict>
+		<key>Modules/Toucan.swiftmodule/x86_64.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Jts4ghT4TvBKN+UmP/GzsAGbXro=
+			</data>
+			<key>hash2</key>
+			<data>
+			5UMHuk+mVgBkF9xM/XaA8f0ZIKoqXCQCKn/RqK48TfA=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9R1ZzOCs4lPUxImw76AlD0+FBXA=
+			WSFdx8EcdBF4q+TkXhkg9Vix10c=
 			</data>
 			<key>hash2</key>
 			<data>
-			4Bx4fkP5j4xzXIPruqF9ApeHWxm7ynt1GzEhAJBmmZ8=
+			C+S/7mIzxAPGBpqTl0e6kBTf7btrqQWgTlW/OWtwVz8=
 			</data>
 		</dict>
 	</dict>

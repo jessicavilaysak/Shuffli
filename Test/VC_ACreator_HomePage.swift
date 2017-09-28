@@ -9,13 +9,18 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import SVProgressHUD
 
 class VC_ACreator_HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var fldcreator: UILabel!
     @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet var fldusername: UILabel!
     @IBOutlet var fldcompany: UILabel!
     @IBOutlet weak var userTable: UITableView!
+    
+    var handle: FIRAuthStateDidChangeListenerHandle!
+    var signingOut: Bool!
     
     
    // @IBOutlet weak var collectionView: UICollectionView!
@@ -36,11 +41,12 @@ class VC_ACreator_HomePage: UIViewController, UITableViewDataSource, UITableView
     
     //@IBOutlet var viewusers: UICollectionView!
     override func viewDidLoad() {
-        
+        signingOut = false;
         userTable.delegate = self;
         userTable.dataSource = self;
         
         fldcompany.text = userObj.accountName;
+        fldcreator.text = userObj.creatorName;
         fldusername.text = userObj.username;
         /*if dataSource.userArray.count > 0
         {
@@ -58,6 +64,8 @@ class VC_ACreator_HomePage: UIViewController, UITableViewDataSource, UITableView
         bgImage.layer.shadowOpacity = 0.5
         bgImage.layer.shadowRadius = 10;
         bgImage.layer.shouldRasterize = true //tells IOS to cache the shadow
+        
+        SVProgressHUD.setDefaultStyle(.dark)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -80,19 +88,43 @@ class VC_ACreator_HomePage: UIViewController, UITableViewDataSource, UITableView
         
         return cell
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // [START remove_auth_listener]
+        if(signingOut)
+        {
+            FIRAuth.auth()?.removeStateDidChangeListener(handle!)
+            FIRDatabase.database().reference(withPath: userObj.listenerPath).removeAllObservers();
+            userObj.resetObj();
+            
+            print("SHUFFLI | signed out.");
+            SVProgressHUD.showSuccess(withStatus: "Logged out!");
+            SVProgressHUD.dismiss(withDelay: 1);
+        }
+        
+        // [END remove_auth_listener]
+    }
 
     @IBAction func logout(_ sender: Any) {
-        if FIRAuth.auth()?.currentUser != nil {
-            do{
-                try FIRAuth.auth()?.signOut()
-                let vc = storyboard?.instantiateViewController(withIdentifier: "VC_signin");
-                present(vc!, animated: true, completion: nil);
-            } catch let error as NSError{
-                print(error)
+        try! FIRAuth.auth()!.signOut()
+        
+        handle = FIRAuth.auth()?.addStateDidChangeListener({ (auth: FIRAuth,user: FIRUser?) in
+            if user?.uid == userObj.uid {
+                print("SHUFFLI | could not log out for some reason :(");
+            } else {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "VC_signin");
+                //self.present(vc!, animated: true, completion: nil);
+                self.dismiss(animated: true, completion: nil)
+                if(userObj.inviteCode != nil)
+                {
+                    self.presentingViewController?.present(vc!, animated: true, completion: nil);
+                }
+                self.signingOut = true;
+                //the user has now signed out so go to login view controller
+                // and remove this listener
             }
-        }else{
-            print("User is nill")
-        }
+        });
     }
 
     
@@ -100,7 +132,6 @@ class VC_ACreator_HomePage: UIViewController, UITableViewDataSource, UITableView
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "VC_adduser")
         self.present(vc!,animated: true,completion: nil)
-        
     }
     
     
