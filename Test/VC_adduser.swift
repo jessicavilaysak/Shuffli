@@ -59,7 +59,7 @@ class VC_adduser: UIViewController, UITextFieldDelegate {
         if(fld_email.text == "" || userRole == "")
         {
             print("No value in email field.");
-            let refreshAlert = UIAlertController(title: "NOTICE", message: "You must enter a valid email and a role [m1, m2, u1]", preferredStyle: UIAlertControllerStyle.alert)
+            let refreshAlert = UIAlertController(title: "NOTICE", message: "You must enter a valid email.", preferredStyle: UIAlertControllerStyle.alert)
             refreshAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
             }))
             present(refreshAlert, animated: true, completion: nil)

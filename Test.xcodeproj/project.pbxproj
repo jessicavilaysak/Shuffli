@@ -23,6 +23,7 @@
 		22B034551F4EA84500E4B357 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22B034541F4EA84500E4B357 /* GoogleService-Info.plist */; };
 		22C1DF271EC32A1C0022DC01 /* VC_ACreator_HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C1DF261EC32A1C0022DC01 /* VC_ACreator_HomePage.swift */; };
 		22C1DF2B1EC32DE40022DC01 /* CustomCellUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C1DF2A1EC32DE40022DC01 /* CustomCellUser.swift */; };
+		22D3CA8F1F7CF9D400990F4D /* downloadUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3CA8E1F7CF9D400990F4D /* downloadUserModel.swift */; };
 		22E497961EC304AD00B419E9 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E497951EC304AD00B419E9 /* CustomCell.swift */; };
 		22E497981EC3142400B419E9 /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E497971EC3142400B419E9 /* Datasource.swift */; };
 		22EFFF091F60D5B2008AA0B9 /* VC_ClickImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EFFF081F60D5B2008AA0B9 /* VC_ClickImage.swift */; };
@@ -74,6 +75,7 @@
 		22B034541F4EA84500E4B357 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Test/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		22C1DF261EC32A1C0022DC01 /* VC_ACreator_HomePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC_ACreator_HomePage.swift; sourceTree = "<group>"; };
 		22C1DF2A1EC32DE40022DC01 /* CustomCellUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellUser.swift; sourceTree = "<group>"; };
+		22D3CA8E1F7CF9D400990F4D /* downloadUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = downloadUserModel.swift; sourceTree = "<group>"; };
 		22E497951EC304AD00B419E9 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		22E497971EC3142400B419E9 /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
 		22EFFF081F60D5B2008AA0B9 /* VC_ClickImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC_ClickImage.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				616507B11F7793130043BAC5 /* Test-Bridging-Header.h */,
 				2217BAA61F77F45E00C2A76C /* VC_InviteCode.swift */,
 				223DB4661F78F6CC00888461 /* VC_SetPassword.swift */,
+				22D3CA8E1F7CF9D400990F4D /* downloadUserModel.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				22E497961EC304AD00B419E9 /* CustomCell.swift in Sources */,
 				223DB4671F78F6CC00888461 /* VC_SetPassword.swift in Sources */,
 				2285D6E31EC3F5BA00211D41 /* VC_Creator_Viewposts.swift in Sources */,
+				22D3CA8F1F7CF9D400990F4D /* downloadUserModel.swift in Sources */,
 				22C1DF271EC32A1C0022DC01 /* VC_ACreator_HomePage.swift in Sources */,
 				2217BAA71F77F45E00C2A76C /* VC_InviteCode.swift in Sources */,
 				220D371D1F4BE640003C2E24 /* UserObject.swift in Sources */,

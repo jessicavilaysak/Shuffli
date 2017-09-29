@@ -111,18 +111,17 @@ class VC_Creator_Signin: UIViewController, UITextFieldDelegate {
      */
     
     func directSegue() {
-
         let tabs = TabBarController();
-        self.present(tabs, animated: true, completion: nil);
+        self.present(tabs, animated: true, completion: nil)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // [START remove_auth_listener]
+       
         fld_password.text = "";
         fld_username.text = "";
         
-        // [END remove_auth_listener]
     }
     
 //    override func viewDidAppear(_ animated: Bool) {
