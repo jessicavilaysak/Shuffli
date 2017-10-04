@@ -41,7 +41,9 @@ class InitialViewController: UIViewController, UIScrollViewDelegate {
         // Do any additional setup after loading the view.
         tuteArray = [tute1,tute2,tute3,tute4]
         scrollView.isPagingEnabled = true
-        //scrollView.contentSize = CGSize(width: self.view.bounds.width * CGFloat(tuteArray.count), height: 395)
+        scrollView.contentSize = CGSize(width: self.view.bounds.width * CGFloat(tuteArray.count), height: 50)
+            
+        
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.delegate = self
@@ -53,7 +55,7 @@ class InitialViewController: UIViewController, UIScrollViewDelegate {
         scrollView.layer.shadowOffset = CGSize(width: 1.0, height:1.0)
         scrollView.layer.shadowOpacity = 0.5
         scrollView.layer.shadowRadius = 10;
-        scrollView.layer.shouldRasterize  = true
+        scrollView.layer.shouldRasterize  = false
     }
     
     func loadTutes() {
@@ -66,7 +68,7 @@ class InitialViewController: UIViewController, UIScrollViewDelegate {
                 
                 scrollView.addSubview(tuteView)
                 //tuteView.frame.size.width = self.view.bounds.size.width
-                //tuteView.frame.origin.x = CGFloat(index) * self.view.bounds.size.width
+                tuteView.frame.origin.x = CGFloat(index) * self.view.bounds.size.width
                 
             }
         }

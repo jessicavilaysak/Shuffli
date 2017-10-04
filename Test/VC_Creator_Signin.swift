@@ -157,5 +157,8 @@ class VC_Creator_Signin: UIViewController, UITextFieldDelegate {
         //keychain()
     }
 
+    @IBAction func goBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }
