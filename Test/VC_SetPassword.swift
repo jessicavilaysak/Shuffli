@@ -16,8 +16,6 @@ import SwiftMessageBar
 class VC_SetPassword: UIViewController, UITextFieldDelegate{
 
   
-    @IBOutlet weak var lvl2Label: UILabel!
-    @IBOutlet weak var lvl1Label: UILabel!
     @IBOutlet weak var fld_password: UITextField!
     @IBOutlet weak var fld_confirmPassword: UITextField!
     @IBOutlet weak var fld_name: UITextField!
@@ -38,9 +36,6 @@ class VC_SetPassword: UIViewController, UITextFieldDelegate{
         fld_confirmPassword.tag = 2
         btn_createAccount.layer.cornerRadius = 4
         SVProgressHUD.setDefaultStyle(.dark)
-        
-        lvl1Label.text = userObj.accountName
-        lvl2Label.text = userObj.creatorName
     }
     
     override func viewWillDisappear(_ animated: Bool) {
