@@ -41,7 +41,7 @@ class InitialViewController: UIViewController, UIScrollViewDelegate {
         // Do any additional setup after loading the view.
         tuteArray = [tute1,tute2,tute3,tute4]
         scrollView.isPagingEnabled = true
-        scrollView.contentSize = CGSize(width: self.view.bounds.width * CGFloat(tuteArray.count), height: 395)
+        //scrollView.contentSize = CGSize(width: self.view.bounds.width * CGFloat(tuteArray.count), height: 395)
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.delegate = self
@@ -65,8 +65,8 @@ class InitialViewController: UIViewController, UIScrollViewDelegate {
                 tuteView.tuteDescription.text = tute["descripiton"]
                 
                 scrollView.addSubview(tuteView)
-                tuteView.frame.size.width = self.view.bounds.size.width
-                tuteView.frame.origin.x = CGFloat(index) * self.view.bounds.size.width
+                //tuteView.frame.size.width = self.view.bounds.size.width
+                //tuteView.frame.origin.x = CGFloat(index) * self.view.bounds.size.width
                 
             }
         }

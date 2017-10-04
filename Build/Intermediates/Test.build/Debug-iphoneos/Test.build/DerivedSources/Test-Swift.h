@@ -248,15 +248,25 @@ SWIFT_CLASS("_TtC4Test14CustomCellUser")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIScrollView;
+@class UIPageControl;
 @class NSBundle;
 
 SWIFT_CLASS("_TtC4Test21InitialViewController")
-@interface InitialViewController : UIViewController
+@interface InitialViewController : UIViewController <UIScrollViewDelegate>
+@property (nonatomic, weak) IBOutlet UIScrollView * _Null_unspecified scrollView;
+@property (nonatomic, weak) IBOutlet UIPageControl * _Null_unspecified pageControl;
 - (IBAction)btnAdminCreator:(id _Nonnull)sender;
 - (IBAction)btnCreator:(id _Nonnull)sender;
 - (void)segueToLoginWithVc_name:(NSString * _Nonnull)vc_name;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nonnull tute1;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nonnull tute2;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nonnull tute3;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nonnull tute4;
+@property (nonatomic, copy) NSArray<NSDictionary<NSString *, NSString *> *> * _Nonnull tuteArray;
 - (void)viewDidLoad;
-- (void)didReceiveMemoryWarning;
+- (void)loadTutes;
+- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -387,6 +397,16 @@ SWIFT_CLASS("_TtC4Test6Toucan")
 /// Self, allowing method chaining
 - (Toucan * _Nonnull)layerWithOverlayImage:(UIImage * _Nonnull)overlayImage overlayFrame:(CGRect)overlayFrame SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC4Test8TuteView")
+@interface TuteView : UIView
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified tuteTitle;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified tuteImage;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified tuteDescription;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

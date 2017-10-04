@@ -143,7 +143,7 @@ class VC_PostContent: UIViewController, UITextViewDelegate, UIImagePickerControl
             fld_camera_label.isHidden = false;
             fld_cameraRoll.isHidden = false;
             fld_cameraRoll_label.isHidden = false;
-            fld_caption.placeholder = "Say something interesting...";
+            fld_caption.placeholder = "Write caption...";
         }
         else
         {
